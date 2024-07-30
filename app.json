@@ -1,0 +1,13 @@
+{
+  "expo": {
+    "name": "@argo22/mobile-ui-kit",
+    "slug": "@argo22mobile-ui-kit",
+    "version": "0.1.0",
+    "description": "UI Kit for expo based mobile apps.",
+    "sdkVersion": "51.0.0",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  }
+}

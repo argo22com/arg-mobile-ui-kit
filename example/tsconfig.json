@@ -3,8 +3,8 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "argo-ui-kit": ["../src/index"],
-      "argo-ui-kit/*": ["../src/*"]
+      "@argo22/mobile-ui-kit": ["../src/index"],
+      "@argo22/mobile-ui-kit/*": ["../src/*"]
     }
   }
 }

@@ -1,9 +1,3 @@
 {
-  "platforms": ["ios", "tvos", "android", "web"],
-  "ios": {
-    "modules": ["ArgoUiKitModule"]
-  },
-  "android": {
-    "modules": ["expo.modules.argouikit.ArgoUiKitModule"]
-  }
+  "platforms": ["ios", "android"]
 }
