@@ -29,7 +29,6 @@ To start the packager:
 yarn build
 ```
 
-
 To run the example app on Android:
 
 ```sh
@@ -92,8 +91,6 @@ Our pre-commit hooks verify that the linter and tests pass when committing.
 
 ### Publishing to npm
 
-We use [release-it](https://github.com/release-it/release-it) to make it easier to publish new versions. It handles common tasks like bumping version based on semver, creating tags and releases etc.
-
 To publish new versions, run the following:
 
 ```sh
@@ -105,12 +102,12 @@ yarn release
 The `package.json` file contains various scripts for common tasks:
 
 - `yarn`: setup project by installing dependencies.
+- `yarn build`: build project and watch for changes.
 - `yarn typecheck`: type-check files with TypeScript.
 - `yarn lint`: lint files with ESLint.
 - `yarn test`: run unit tests with Jest.
-- `yarn example start`: start the Metro server for the example app.
-- `yarn example android`: run the example app on Android.
-- `yarn example ios`: run the example app on iOS.
+- `yarn android`: run the example app on Android.
+- `yarn ios`: run the example app on iOS.
 
 ### Sending a pull request
 

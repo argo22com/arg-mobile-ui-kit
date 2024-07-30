@@ -21,16 +21,18 @@
   "keywords": [
     "react-native",
     "expo",
-    "argo-ui-kit",
-    "ArgoUiKit"
+    "ui-kit",
+    "ArgoUiKit",
+    "@argo22",
+    "@argo22/mobile-ui-kit"
   ],
-  "repository": "https://github.com/Kamony/argo-ui-kit",
+  "repository": "https://github.com/argo22com/arg-mobile-ui-kit",
   "bugs": {
-    "url": "https://github.com/Kamony/argo-ui-kit/issues"
+    "url": "https://github.com/argo22com/arg-mobile-ui-kit/issues"
   },
   "author": "Kamony <jirihauser94@gmail.com> (https://github.com/Kamony)",
   "license": "MIT",
-  "homepage": "https://github.com/Kamony/argo-ui-kit#readme",
+  "homepage": "https://github.com/argo22com/arg-mobile-ui-kit#readme",
   "dependencies": {
     "@rn-primitives/checkbox": "^1.0.3",
     "@rn-primitives/portal": "^1.0.3",
