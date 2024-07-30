@@ -92,9 +92,30 @@ export default () => <SearchIcon />
 
 # API documentation
 
+### Atoms
+Atoms are the fundamental building blocks of the UI, providing simple and reusable components like typography and component for custom icons.
+
+- [Helper Text](./docs/HelperText.docs.md)
+- [Custom Icon](./docs/Icon.docs.md)
+- [Label](./docs/Label.docs.md)
+- [Loader](./docs/Loader.docs.md)
+- [Typography](./docs/Typography.docs.md)
+- [UI Slot](./docs/UISlot.docs.md)
+
+### Molecules
+Molecules combine two or more atoms to form more complex UI components, such as buttons and input fields, which offer richer functionality and interaction.
+- [Button](./docs/Button.docs.md)
+- [Check Box](./docs/CheckBox.docs.md)
+- [Input](./docs/Input.docs.md)
+- [Radio Group](./docs/RadioGroup.docs.md)
+- [Select](./docs/Select.docs.md)
+- [Switch](./docs/Switch.docs.md)
+
+### Toast
+The Toast category includes components related to displaying transient notifications to inform users of important information or status changes.
 - [Toast](./docs/Toast.docs.md)
 - [ToastManager](./docs/ToastManager.docs.md)
-- [Custom Icon](./docs/Icon.docs.md)
+
 
 # Theming
 
