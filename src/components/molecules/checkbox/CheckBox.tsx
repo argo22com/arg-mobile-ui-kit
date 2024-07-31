@@ -12,6 +12,7 @@ import { UIContext } from "../../../context/context";
 import { HelperText } from "../../atoms/helper-text/HelperText";
 import { Typography } from "../../atoms/typography/Typography";
 import { UISlot } from "../../atoms/ui-slot/UISlot";
+import {Label} from "../../atoms/label/Label";
 
 type ComponentVariants = UnistylesVariants<typeof styleSheet>;
 
@@ -46,6 +47,12 @@ export const CheckBox = ({
     return (styles.box as ViewStyle).borderColor;
   }, [styles]);
 
+  const typographyColor = useMemo(() => {
+    if(error) return undefined;
+    if(disabled) return undefined;
+    return checked ? theme.components.checkbox.label.variant.active.color : undefined;
+  }, [checked, theme]);
+
   return (
     <View {...rest}>
       <UIContext.Provider
@@ -74,7 +81,15 @@ export const CheckBox = ({
                   <UISlot element={<CheckIcon />} />
                 </CheckboxPrimitive.Indicator>
               </CheckboxPrimitive.Root>
-              {label ? <Typography>{label}</Typography> : null}
+                  <UIContext.Provider
+                      value={{
+                        color: typographyColor || uiColor,
+                      }}
+                  >
+                    {label ? (
+                        <Label style={{fontFamily:theme.components.checkbox.label.font}}>{label}</Label>
+                    ) : null}
+                  </UIContext.Provider>
             </>
           )}
         </Pressable>

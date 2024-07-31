@@ -186,8 +186,14 @@ export const defaultTheme = {
         },
         checkbox: {
             borderRadius: borderRadiuses.xs,
-            //todo: přidat možnost výberu barvy textu u active stavu
-            //todo: přidat možnost výberu fontu labelu
+            label: {
+                font: fonts.heading.light,
+                variant: {
+                    active: {
+                        color: colors.primary["100"],
+                    },
+                },
+            },
         },
         switch: {
             //todo: přidat možnost výberu barvy textu u active stavu
