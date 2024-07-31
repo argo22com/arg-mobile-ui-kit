@@ -196,7 +196,14 @@ export const defaultTheme = {
             },
         },
         switch: {
-            //todo: přidat možnost výberu barvy textu u active stavu
+            label: {
+                font: fonts.heading.light,
+                variant: {
+                    active: {
+                        color: colors.primary["100"],
+                    },
+                },
+            },
             spacing: {
                 horizontal: spacings["2xs"],
                 vertical: spacings["2xs"],

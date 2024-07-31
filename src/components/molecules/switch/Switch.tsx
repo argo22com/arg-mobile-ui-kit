@@ -11,7 +11,7 @@ import { createStyleSheet, useStyles } from "react-native-unistyles";
 
 import { UIContext } from "../../../context/context";
 import { HelperText } from "../../atoms/helper-text/HelperText";
-import { Typography } from "../../atoms/typography/Typography";
+import {Label} from "../../atoms/label/Label";
 
 export type SwitchProps = {
   checked: boolean;
@@ -52,6 +52,11 @@ export const Switch = ({
     ],
   }));
 
+  const typographyColor = useMemo(() => {
+    if(disabled) return undefined;
+    return checked ? theme.components.switch.label.variant.active.color : undefined;
+  }, [checked, theme]);
+
   return (
     <View {...rest}>
       <UIContext.Provider value={{ color: uiColor }}>
@@ -77,7 +82,15 @@ export const Switch = ({
                   </SwitchPrimitive.Thumb>
                 </Animated.View>
               </SwitchPrimitive.Root>
-              {label ? <Typography>{label}</Typography> : null}
+              <UIContext.Provider
+                  value={{
+                    color: typographyColor || uiColor,
+                  }}
+              >
+                {label ? (
+                    <Label style={{fontFamily:theme.components.switch.label.font}}>{label}</Label>
+                ) : null}
+              </UIContext.Provider>
             </>
           )}
         </Pressable>
