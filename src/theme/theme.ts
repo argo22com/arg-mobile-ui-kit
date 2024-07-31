@@ -210,8 +210,26 @@ export const defaultTheme = {
             },
         },
         radio: {
-            //todo: přidat možnost výberu barvy textu u active stavu
             borderRadius: borderRadiuses.md,
+            groupLabel:{
+                font:fonts.heading.strong,
+                variant: {
+                    active: {
+                        color: colors.neutral["800"],
+                    },
+                },
+            },
+            radioLabel: {
+                font: fonts.heading.light,
+                variant: {
+                    active: {
+                        color: colors.primary["100"],
+                    },
+                    default: {
+                        color: colors.neutral["800"],
+                    },
+                },
+            },
         },
         button: {
             font: fonts.paragraph.light,

@@ -14,7 +14,6 @@ import { createStyleSheet, useStyles } from "react-native-unistyles";
 import { UIContext } from "../../../context/context";
 import { HelperText } from "../../atoms/helper-text/HelperText";
 import { Label } from "../../atoms/label/Label";
-import { Typography } from "../../atoms/typography/Typography";
 
 type Option = { label: string; value: string };
 
@@ -38,7 +37,7 @@ export const RadioGroup = ({
   error,
   ...rest
 }: RadioGroupProps) => {
-  const { styles } = useStyles(radioGroupStylesheet, {
+  const { styles, theme } = useStyles(radioGroupStylesheet, {
     disabled,
     error,
     active: !!value,
@@ -48,31 +47,39 @@ export const RadioGroup = ({
     return (styles.root as TextStyle).color;
   }, [styles]);
 
-  return (
-    <View {...rest}>
-      <UIContext.Provider value={{ color: uiColor }}>
-        <RadioGroupPrimitive.Root
-          value={value}
-          onValueChange={onValueChange}
-          style={styles.root}
-        >
-          {label && <Label>{label}</Label>}
-          {options.map((item) => (
-            <Radio
-              label={item.label}
-              value={item.value}
-              key={item.value}
-              selected={value === item.value}
-              disabled={disabled}
-              error={error}
-              onPress={() => onValueChange(item.value)}
-            />
-          ))}
-        </RadioGroupPrimitive.Root>
+  const typographyColor = useMemo(() => {
+    if (error) return undefined;
+    if (disabled) return undefined;
+    return !!value ? theme.components.radio.groupLabel.variant.active.color : undefined;
+  }, [value, theme]);
 
-        {helperText && <HelperText>{helperText}</HelperText>}
-      </UIContext.Provider>
-    </View>
+  return (
+      <View {...rest}>
+        <UIContext.Provider value={{ color: uiColor }}>
+          <RadioGroupPrimitive.Root value={value} onValueChange={onValueChange} style={styles.root}>
+            <UIContext.Provider
+                value={{
+                  color: typographyColor || uiColor,
+                }}
+            >
+              {label && <Label style={{ fontFamily: theme.components.radio.groupLabel.font }}>{label}</Label>}
+            </UIContext.Provider>
+            {options.map((item) => (
+                <Radio
+                    label={item.label}
+                    value={item.value}
+                    key={item.value}
+                    selected={value === item.value}
+                    disabled={disabled}
+                    error={error}
+                    onPress={() => onValueChange(item.value)}
+                />
+            ))}
+          </RadioGroupPrimitive.Root>
+
+          {helperText && <HelperText>{helperText}</HelperText>}
+        </UIContext.Provider>
+      </View>
   );
 };
 
@@ -110,48 +117,44 @@ type RadioProps = {
   error?: boolean;
   style?: StyleProp<ViewStyle>;
 } & Option &
-  Omit<PressableProps, "style">;
+    Omit<PressableProps, "style">;
 
-const Radio = ({
-  value,
-  label,
-  selected,
-  disabled,
-  error,
-  style,
-  ...rest
-}: RadioProps) => {
-  const { styles } = useStyles(radioStylesheet, {
+const Radio = ({ value, label, selected, disabled, error, style, ...rest }: RadioProps) => {
+  const { styles, theme } = useStyles(radioStylesheet, {
     selected,
     disabled: !!disabled,
     error: !!error,
   });
-
   return (
-    <Pressable disabled={disabled} style={[styles.root, style]} {...rest}>
-      {({ pressed: rootPressed }) => (
-        <UIContext.Provider
-          value={{
-            color: (styles.radio as ViewStyle).borderColor,
-          }}
-        >
-          <RadioGroupPrimitive.Item
-            value={value}
-            aria-labelledby={label}
-            disabled={disabled}
-            style={({ pressed }) => [
-              styles.radio,
-              (pressed || rootPressed) && styles.pressed,
-            ]}
-          >
-            <RadioGroupPrimitive.Indicator>
-              <View style={styles.dot} />
-            </RadioGroupPrimitive.Indicator>
-          </RadioGroupPrimitive.Item>
-          <Typography nativeID={label}>{label}</Typography>
-        </UIContext.Provider>
-      )}
-    </Pressable>
+      <Pressable disabled={disabled} style={[styles.root, style]} {...rest}>
+        {({ pressed: rootPressed }) => (
+            <UIContext.Provider
+                value={{
+                  color: (styles.radio as ViewStyle).borderColor,
+                }}
+            >
+              <RadioGroupPrimitive.Item
+                  value={value}
+                  aria-labelledby={label}
+                  disabled={disabled}
+                  style={({ pressed }) => [
+                    styles.radio,
+                    (pressed || rootPressed) && styles.pressed,
+                  ]}
+              >
+                <RadioGroupPrimitive.Indicator>
+                  <View style={styles.dot} />
+                </RadioGroupPrimitive.Indicator>
+              </RadioGroupPrimitive.Item>
+              <Label
+                  style={[error || disabled || styles.label, { fontFamily: theme.components.radio.radioLabel.font }]}
+                  nativeID={label}
+              >
+                {label}
+              </Label>
+            </UIContext.Provider>
+        )}
+      </Pressable>
   );
 };
 
@@ -241,20 +244,32 @@ const radioStylesheet = createStyleSheet((theme) => ({
       selected: {
         true: {
           backgroundColor:
-            theme.components.input.variants.active.color.foreground,
+          theme.components.input.variants.active.color.foreground,
         },
       },
       disabled: {
         true: {
           opacity: theme.components.disabled.opacity,
           backgroundColor:
-            theme.components.input.variants.disabled.color.foreground,
+          theme.components.input.variants.disabled.color.foreground,
         },
       },
       error: {
         true: {
           backgroundColor:
-            theme.components.input.variants.error.color.foreground,
+          theme.components.input.variants.error.color.foreground,
+        },
+      },
+    },
+  },
+  label: {
+    variants: {
+      selected: {
+        true: {
+          color: theme.components.radio.radioLabel.variant.active.color,
+        },
+        false: {
+          color: theme.components.radio.radioLabel.variant.default.color,
         },
       },
     },
