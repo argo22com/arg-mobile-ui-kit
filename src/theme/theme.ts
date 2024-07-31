@@ -51,8 +51,8 @@ export const colors = {
     600: "#2E90C7",
     800: "#043B5A",
   },
-  overlay: "rgba(0, 0, 0, 0.3)"
-} as const;
+  overlay: "rgba(0, 0, 0, 0.3)",
+};
 
 export const borderRadiuses = {
   none: 0,
@@ -73,7 +73,7 @@ export const spacings = {
   lg: 24,
   xl: 32,
   "2xl": 48,
-} as const;
+};
 
 export const fonts = {
   paragraph: {
@@ -84,7 +84,7 @@ export const fonts = {
     light: "FrauncesRegular",
     strong: "FrauncesBold",
   },
-} as const;
+};
 
 export const fontSizes = {
   xs: 10,
@@ -93,12 +93,12 @@ export const fontSizes = {
   lg: 18,
   xl: 24,
   "2xl": 24,
-} as const;
+};
 
 export const borderWidth = {
   sm: 1,
   md: 2,
-} as const;
+};
 
 export const defaultTheme = {
   colors,
@@ -241,7 +241,7 @@ export const defaultTheme = {
             disabled: borderWidth.sm,
           },
           color: {
-            background: colors.primary['100'],
+            background: colors.primary["100"],
             foreground: colors.primary["500"],
             pressed: colors.primary["100"],
             disabled: {
@@ -316,4 +316,4 @@ export const defaultTheme = {
       opacity: 1,
     },
   },
-} as const;
+};
