@@ -123,11 +123,13 @@ export const defaultTheme = {
         },
         input: {
             borderRadius: borderRadiuses.md,
-            alignComponentsWithInputValue: true, // align Label and HelperText with input value from left
-            // todo: přidat možnost nastavení odsazení labelu a helperTextu
+            // Aligns Label and HelperText with input value from left
+            alignComponentsWithInputValue: true,
             spacings: {
                 vertical: spacings.sm,
                 horizontal: spacings.md,
+                label: spacings.md,
+                helpertext: spacings.md,
             },
             fonts: {
                 label: fonts.heading.light,

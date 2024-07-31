@@ -17,25 +17,25 @@ export const HelperText = ({
 }: HelperTextProps) => {
   const { styles } = useStyles(stylesheet, {
     alignWithInputValue,
-  });
-  return (
-    <Typography style={[styles.root, style]} size="xs" {...rest}>
-      {children}
-    </Typography>
-  );
+    });
+    return (
+        <Typography style={[styles.root, style]} size="xs" {...rest}>
+            {children}
+        </Typography>
+    );
 };
 
 const stylesheet = createStyleSheet((theme) => ({
-  root: {
-    variants: {
-      alignWithInputValue: {
-        true: {
-          paddingLeft: theme.components.input.spacings.horizontal,
+    root: {
+        variants: {
+            alignWithInputValue: {
+                true: {
+                  paddingLeft: theme.components.input.spacings.helpertext,
+                },
+                false: {
+                    paddingLeft: 0,
+                },
+            },
         },
-        false: {
-          paddingLeft: 0,
-        },
-      },
     },
-  },
 }));
