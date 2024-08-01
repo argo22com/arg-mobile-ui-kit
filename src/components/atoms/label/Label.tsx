@@ -19,7 +19,7 @@ const stylesheet = createStyleSheet((theme) => ({
     variants: {
       alignWithInputValue: {
         true: {
-          paddingLeft: theme.components.input.spacings.label,
+          paddingLeft: theme.components.input.spacings.horizontal,
         },
         false: {
           paddingLeft: 0,

@@ -83,6 +83,7 @@ export const Input = forwardRef<Partial<TextInput>, InputProps>(
         >
           {label ? (
             <Label
+              style={styles.label}
               alignWithInputValue={
                 theme.components.input.alignComponentsWithInputValue
               }
@@ -122,6 +123,7 @@ export const Input = forwardRef<Partial<TextInput>, InputProps>(
           </Pressable>
           {helperText ? (
             <HelperText
+              style={styles.helperText}
               alignWithInputValue={
                 theme.components.input.alignComponentsWithInputValue
               }
@@ -210,4 +212,10 @@ const stylesheet = createStyleSheet((theme) => ({
       },
     },
   },
+  label: {
+    marginBottom: theme.components.input.spacings.label,
+  },
+  helperText: {
+    marginTop: theme.components.input.spacings.helpertext,
+  }
 }));

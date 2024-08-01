@@ -122,14 +122,14 @@ export const defaultTheme = {
             },
         },
         input: {
-            borderRadius: borderRadiuses.md,
+            borderRadius: borderRadiuses.xs,
             // Aligns Label and HelperText with input value from left
-            alignComponentsWithInputValue: true,
+            alignComponentsWithInputValue: false,
             spacings: {
                 vertical: spacings.sm,
                 horizontal: spacings.md,
-                label: spacings.md,
-                helpertext: spacings.md,
+                label: spacings["2xs"],
+                helpertext: spacings["2xs"],
             },
             fonts: {
                 label: fonts.heading.light,
@@ -137,7 +137,7 @@ export const defaultTheme = {
             },
             variants: {
                 active: {
-                    borderWidth: borderWidth.md,
+                    borderWidth: borderWidth.sm,
                     color: {
                         background: colors.base.white,
                         foreground: colors.primary["500"],
@@ -169,8 +169,7 @@ export const defaultTheme = {
                 },
             },
         },
-        option: {
-            //select option
+        selectOption: {
             spacing: {
                 vertical: spacings.sm,
                 horizontal: spacings.md,
@@ -187,20 +186,29 @@ export const defaultTheme = {
         checkbox: {
             borderRadius: borderRadiuses.xs,
             label: {
-                font: fonts.heading.light,
+                font: fonts.paragraph.light,
+                spacing: {
+                    vertical: spacings.md,
+                },
                 variant: {
                     active: {
-                        color: colors.primary["100"],
+                        color: colors.neutral["800"],
+                        font: fonts.paragraph.strong,
                     },
                 },
             },
         },
         switch: {
+            borderRadius: borderRadiuses.md,
             label: {
-                font: fonts.heading.light,
+                font: fonts.paragraph.light,
+                spacing: {
+                    vertical: spacings.sm,
+                },
                 variant: {
                     active: {
-                        color: colors.primary["100"],
+                        color: colors.neutral["800"],
+                        font: fonts.paragraph.strong,
                     },
                 },
             },
@@ -210,9 +218,9 @@ export const defaultTheme = {
             },
         },
         radio: {
-            borderRadius: borderRadiuses.md,
-            groupLabel:{
-                font:fonts.heading.strong,
+            borderRadius: borderRadiuses.full,
+            groupLabel: {
+                // follows input label config
                 variant: {
                     active: {
                         color: colors.neutral["800"],
@@ -220,13 +228,14 @@ export const defaultTheme = {
                 },
             },
             radioLabel: {
-                font: fonts.heading.light,
+                font: fonts.paragraph.light,
+                spacing: {
+                    vertical: spacings.sm,
+                },
                 variant: {
                     active: {
-                        color: colors.primary["100"],
-                    },
-                    default: {
                         color: colors.neutral["800"],
+                        font: fonts.paragraph.strong,
                     },
                 },
             },
@@ -239,7 +248,8 @@ export const defaultTheme = {
                         vertical: spacings.sm,
                         horizontal: spacings.md,
                     },
-                    borderRadius: borderRadiuses.sm,
+                    borderRadius: borderRadiuses.lg,
+                    gap: spacings.sm,
                 },
                 md: {
                     spacing: {
@@ -247,13 +257,15 @@ export const defaultTheme = {
                         horizontal: spacings.md,
                     },
                     borderRadius: borderRadiuses.md,
+                    gap: spacings.sm,
                 },
                 lg: {
                     spacing: {
                         vertical: spacings.sm,
                         horizontal: spacings.lg,
                     },
-                    borderRadius: borderRadiuses.lg,
+                    borderRadius: borderRadiuses.sm,
+                    gap: spacings.sm,
                 },
             },
             variants: {
@@ -272,7 +284,6 @@ export const defaultTheme = {
                             foreground: colors.neutral["500"],
                         },
                     },
-                    gap: spacings.sm,
                 },
                 secondary: {
                     borderWidth: {
@@ -289,7 +300,6 @@ export const defaultTheme = {
                             foreground: colors.neutral["500"],
                         },
                     },
-                    gap: spacings.sm,
                 },
                 tertiary: {
                     borderWidth: {
@@ -306,7 +316,6 @@ export const defaultTheme = {
                             foreground: colors.neutral["500"],
                         },
                     },
-                    gap: spacings.sm,
                 },
             },
         },

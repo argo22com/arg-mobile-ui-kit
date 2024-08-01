@@ -73,6 +73,7 @@ export const Select = ({
       >
         {label ? (
           <Label
+            style={styles.label}
             alignWithInputValue={
               theme.components.input.alignComponentsWithInputValue
             }
@@ -106,6 +107,8 @@ export const Select = ({
           <SelectPrimitive.Portal>
             <SelectPrimitive.Overlay style={styles.overlay}>
               <SelectPrimitive.Content
+                alignOffset={-theme.components.input.variants.default.borderWidth}
+                sideOffset={theme.spacing.sm}
                 style={[styles.content, { width }]}
                 insets={contentInsets}
               >
@@ -133,6 +136,7 @@ export const Select = ({
         </SelectPrimitive.Root>
         {helperText ? (
           <HelperText
+            style={styles.helperText}
             alignWithInputValue={
               theme.components.input.alignComponentsWithInputValue
             }
@@ -187,6 +191,14 @@ const stylesheet = createStyleSheet((theme) => ({
   },
   placeholder: {
     color: theme.components.typography.colors.placeholder,
+    variants: {
+      error: {
+        true: {
+          color: theme.components.input.variants.error.color.foreground,
+          opacity: 0.5,
+        },
+      }
+    }
   },
   trigger: {
     paddingHorizontal: theme.components.input.spacings.horizontal,
@@ -203,19 +215,25 @@ const stylesheet = createStyleSheet((theme) => ({
   content: {
     backgroundColor: theme.components.input.variants.active.color.background,
     borderWidth: 1,
-    borderRadius: theme.borderRadius.md,
+    borderRadius: theme.components.input.borderRadius,
     borderColor: theme.components.input.variants.active.color.foreground,
     overflow: "hidden",
   },
   item: {
-    paddingVertical: theme.components.option.spacing.vertical,
-    paddingHorizontal: theme.components.option.spacing.horizontal,
+    paddingVertical: theme.components.selectOption.spacing.vertical,
+    paddingHorizontal: theme.components.selectOption.spacing.horizontal,
   },
   pressedItem: {
-    backgroundColor: theme.components.option.variants.pressed.color,
+    backgroundColor: theme.components.selectOption.variants.pressed.color,
   },
   selectedItem: {
     ...StyleSheet.absoluteFillObject,
-    backgroundColor: theme.components.option.variants.active.color,
+    backgroundColor: theme.components.selectOption.variants.active.color,
   },
+  label: {
+    marginBottom: theme.components.input.spacings.label,
+  },
+  helperText: {
+    marginTop: theme.components.input.spacings.helpertext,
+  }
 }));

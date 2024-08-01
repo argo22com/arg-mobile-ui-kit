@@ -30,7 +30,7 @@ const stylesheet = createStyleSheet((theme) => ({
         variants: {
             alignWithInputValue: {
                 true: {
-                  paddingLeft: theme.components.input.spacings.helpertext,
+                  paddingLeft: theme.components.input.spacings.horizontal,
                 },
                 false: {
                     paddingLeft: 0,

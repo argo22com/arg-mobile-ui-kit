@@ -14,6 +14,7 @@ import { createStyleSheet, useStyles } from "react-native-unistyles";
 import { UIContext } from "../../../context/context";
 import { HelperText } from "../../atoms/helper-text/HelperText";
 import { Label } from "../../atoms/label/Label";
+import { Typography } from "../../atoms/typography/Typography";
 
 type Option = { label: string; value: string };
 
@@ -37,7 +38,7 @@ export const RadioGroup = ({
   error,
   ...rest
 }: RadioGroupProps) => {
-  const { styles, theme } = useStyles(radioGroupStylesheet, {
+  const { styles } = useStyles(radioGroupStylesheet, {
     disabled,
     error,
     active: !!value,
@@ -47,23 +48,11 @@ export const RadioGroup = ({
     return (styles.root as TextStyle).color;
   }, [styles]);
 
-  const typographyColor = useMemo(() => {
-    if (error) return undefined;
-    if (disabled) return undefined;
-    return !!value ? theme.components.radio.groupLabel.variant.active.color : undefined;
-  }, [value, theme]);
-
   return (
       <View {...rest}>
         <UIContext.Provider value={{ color: uiColor }}>
+          {label && <Label style={styles.label}>{label}</Label>}
           <RadioGroupPrimitive.Root value={value} onValueChange={onValueChange} style={styles.root}>
-            <UIContext.Provider
-                value={{
-                  color: typographyColor || uiColor,
-                }}
-            >
-              {label && <Label style={{ fontFamily: theme.components.radio.groupLabel.font }}>{label}</Label>}
-            </UIContext.Provider>
             {options.map((item) => (
                 <Radio
                     label={item.label}
@@ -77,7 +66,7 @@ export const RadioGroup = ({
             ))}
           </RadioGroupPrimitive.Root>
 
-          {helperText && <HelperText>{helperText}</HelperText>}
+          {helperText && <HelperText style={styles.helperText}>{helperText}</HelperText>}
         </UIContext.Provider>
       </View>
   );
@@ -109,6 +98,12 @@ const radioGroupStylesheet = createStyleSheet((theme) => ({
       },
     },
   },
+  label: {
+    marginBottom: theme.components.input.spacings.label,
+  },
+  helperText: {
+    marginTop: theme.components.input.spacings.helpertext,
+  }
 }));
 
 type RadioProps = {
@@ -119,11 +114,13 @@ type RadioProps = {
     Omit<PressableProps, "style">;
 
 const Radio = ({ value, label, selected, disabled, error, style, ...rest }: RadioProps) => {
-  const { styles, theme } = useStyles(radioStylesheet, {
+  const { styles } = useStyles(radioStylesheet, {
     selected,
     disabled: !!disabled,
     error: !!error,
   });
+  const isActive = selected && !disabled && !error;
+
   return (
       <Pressable disabled={disabled} style={[styles.root, style]} {...rest}>
         {({ pressed: rootPressed }) => (
@@ -145,12 +142,12 @@ const Radio = ({ value, label, selected, disabled, error, style, ...rest }: Radi
                   <View style={styles.dot} />
                 </RadioGroupPrimitive.Indicator>
               </RadioGroupPrimitive.Item>
-              <Label
-                  style={[error || disabled || styles.label, { fontFamily: theme.components.radio.radioLabel.font }]}
+              <Typography
+                  style={[styles.label, isActive && styles.labelActive]}
                   nativeID={label}
               >
                 {label}
-              </Label>
+              </Typography>
             </UIContext.Provider>
         )}
       </Pressable>
@@ -259,16 +256,12 @@ const radioStylesheet = createStyleSheet((theme) => ({
     },
   },
   label: {
-    variants: {
-      selected: {
-        true: {
-          color: theme.components.radio.radioLabel.variant.active.color,
-        },
-        false: {
-          color: theme.components.radio.radioLabel.variant.default.color,
-        },
-      },
-    },
+    fontFamily: theme.components.radio.radioLabel.font,
+    marginLeft: theme.components.radio.radioLabel.spacing.vertical,
+  },
+  labelActive: {
+    color: theme.components.radio.radioLabel.variant.active.color,
+    fontFamily: theme.components.radio.radioLabel.variant.active.font,
   },
   pressed: {
     backgroundColor: theme.components.input.variants.pressed.color,

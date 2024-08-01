@@ -6,7 +6,7 @@ import {
   useStyles,
 } from "react-native-unistyles";
 
-import { UIContext } from "../../../context/context";
+import { UIContext } from "../../../context";
 import { Loader } from "../../atoms/loader/Loader";
 import { Typography } from "../../atoms/typography/Typography";
 import { UISlot } from "../../atoms/ui-slot/UISlot";
@@ -106,21 +106,25 @@ const styleSheet = createStyleSheet((theme) => ({
                     paddingHorizontal: theme.components.button.size.sm.spacing.horizontal,
                     paddingVertical: theme.components.button.size.sm.spacing.vertical,
                     borderRadius: theme.components.button.size.sm.borderRadius,
+                    gap: theme.components.button.size.sm.gap,
                 },
                 md: {
                     paddingHorizontal: theme.components.button.size.md.spacing.horizontal,
                     paddingVertical: theme.components.button.size.md.spacing.vertical,
                     borderRadius: theme.components.button.size.md.borderRadius,
+                    gap: theme.components.button.size.md.gap,
                 },
                 lg: {
                     paddingHorizontal: theme.components.button.size.lg.spacing.horizontal,
                     paddingVertical: theme.components.button.size.lg.spacing.vertical,
                     borderRadius: theme.components.button.size.lg.borderRadius,
+                    gap: theme.components.button.size.lg.gap,
                 },
                 default: {
                     paddingHorizontal: theme.components.button.size.md.spacing.horizontal,
                     paddingVertical: theme.components.button.size.md.spacing.vertical,
                     borderRadius: theme.components.button.size.md.borderRadius,
+                    gap: theme.components.button.size.md.gap,
                 },
             },
             variant: {
@@ -131,7 +135,6 @@ const styleSheet = createStyleSheet((theme) => ({
                     theme.components.button.variants.primary.color.background,
                     backgroundColor:
                     theme.components.button.variants.primary.color.background,
-                    gap: theme.components.button.variants.primary.gap,
                 },
                 secondary: {
                     backgroundColor:
@@ -140,7 +143,6 @@ const styleSheet = createStyleSheet((theme) => ({
                     theme.components.button.variants.secondary.borderWidth.default,
                     borderColor:
                     theme.components.button.variants.secondary.color.foreground,
-                    gap: theme.components.button.variants.secondary.gap,
                 },
                 tertiary: {
                     backgroundColor:
@@ -149,7 +151,6 @@ const styleSheet = createStyleSheet((theme) => ({
                     theme.components.button.variants.tertiary.borderWidth.default,
                     borderColor:
                     theme.components.button.variants.tertiary.color.background,
-                    gap: theme.components.button.variants.tertiary.gap,
                 },
                 default: {
                     borderWidth:
@@ -158,7 +159,6 @@ const styleSheet = createStyleSheet((theme) => ({
                     theme.components.button.variants.primary.color.background,
                     backgroundColor:
                     theme.components.button.variants.primary.color.background,
-                    gap: theme.components.button.variants.primary.gap,
                 },
             },
         },
