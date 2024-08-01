@@ -82,10 +82,10 @@ import { Button } from "@argo22/mobile-ui-kit";
 export default () => <Button>Button</Button>
 ```
 
-import icons from `@argo22/mobile-ui-kit/icons`. For more information see [Icons section](#icons)
+import icons from `@argo22/mobile-ui-kit/build/icons`. For more information see [Icons section](#icons)
 
 ```typescript jsx
-import { SearchIcon } from "@argo22/mobile-ui-kit/icons";
+import { SearchIcon } from "@argo22/mobile-ui-kit/build/icons";
 export default () => <SearchIcon />
 ```
 
