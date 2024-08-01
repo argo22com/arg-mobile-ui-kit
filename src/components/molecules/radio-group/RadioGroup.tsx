@@ -94,7 +94,6 @@ const radioGroupStylesheet = createStyleSheet((theme) => ({
       },
       disabled: {
         true: {
-          opacity: theme.components.disabled.opacity,
           color: theme.components.input.variants.disabled.color.foreground,
         },
       },
@@ -172,7 +171,6 @@ const radioStylesheet = createStyleSheet((theme) => ({
       },
       disabled: {
         true: {
-          opacity: theme.components.disabled.opacity,
           color: theme.components.input.variants.disabled.color.foreground,
         },
       },
@@ -209,7 +207,6 @@ const radioStylesheet = createStyleSheet((theme) => ({
       },
       disabled: {
         true: {
-          opacity: theme.components.disabled.opacity,
           borderColor:
             theme.components.input.variants.disabled.color.foreground,
           backgroundColor:
@@ -249,7 +246,6 @@ const radioStylesheet = createStyleSheet((theme) => ({
       },
       disabled: {
         true: {
-          opacity: theme.components.disabled.opacity,
           backgroundColor:
           theme.components.input.variants.disabled.color.foreground,
         },

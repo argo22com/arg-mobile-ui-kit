@@ -353,9 +353,5 @@ export const defaultTheme = {
                 },
             },
         },
-        disabled: {
-            //todo: odstranit
-            opacity: 1,
-        },
     },
 } as const;

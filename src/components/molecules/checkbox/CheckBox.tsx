@@ -136,7 +136,6 @@ const styleSheet = createStyleSheet((theme) => ({
       },
       disabled: {
         true: {
-          opacity: theme.components.disabled.opacity,
           borderColor:
             theme.components.input.variants.disabled.color.foreground,
           backgroundColor:
