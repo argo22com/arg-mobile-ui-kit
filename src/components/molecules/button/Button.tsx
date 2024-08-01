@@ -6,7 +6,7 @@ import {
   useStyles,
 } from "react-native-unistyles";
 
-import { UIContext } from "../../../context/context";
+import { UIContext } from "../../../context";
 import { Loader } from "../../atoms/loader/Loader";
 import { Typography } from "../../atoms/typography/Typography";
 import { UISlot } from "../../atoms/ui-slot/UISlot";
@@ -92,130 +92,136 @@ export const Button = ({
 };
 
 const styleSheet = createStyleSheet((theme) => ({
-  root: {
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: theme.components.button.borderRadius,
+    root: {
+        justifyContent: "center",
+        alignItems: "center",
 
-    flexDirection: "row",
-    gap: theme.spacing.md,
+        flexDirection: "row",
 
-    overflow: "hidden",
+        overflow: "hidden",
 
-    variants: {
-      size: {
-        sm: {
-          paddingHorizontal: theme.components.button.spacings.sm.horizontal,
-          paddingVertical: theme.components.button.spacings.sm.vertical,
+        variants: {
+            size: {
+                sm: {
+                    paddingHorizontal: theme.components.button.size.sm.spacing.horizontal,
+                    paddingVertical: theme.components.button.size.sm.spacing.vertical,
+                    borderRadius: theme.components.button.size.sm.borderRadius,
+                    gap: theme.components.button.size.sm.gap,
+                },
+                md: {
+                    paddingHorizontal: theme.components.button.size.md.spacing.horizontal,
+                    paddingVertical: theme.components.button.size.md.spacing.vertical,
+                    borderRadius: theme.components.button.size.md.borderRadius,
+                    gap: theme.components.button.size.md.gap,
+                },
+                lg: {
+                    paddingHorizontal: theme.components.button.size.lg.spacing.horizontal,
+                    paddingVertical: theme.components.button.size.lg.spacing.vertical,
+                    borderRadius: theme.components.button.size.lg.borderRadius,
+                    gap: theme.components.button.size.lg.gap,
+                },
+                default: {
+                    paddingHorizontal: theme.components.button.size.md.spacing.horizontal,
+                    paddingVertical: theme.components.button.size.md.spacing.vertical,
+                    borderRadius: theme.components.button.size.md.borderRadius,
+                    gap: theme.components.button.size.md.gap,
+                },
+            },
+            variant: {
+                primary: {
+                    borderWidth:
+                    theme.components.button.variants.primary.borderWidth.default,
+                    borderColor:
+                    theme.components.button.variants.primary.color.background,
+                    backgroundColor:
+                    theme.components.button.variants.primary.color.background,
+                },
+                secondary: {
+                    backgroundColor:
+                    theme.components.button.variants.secondary.color.background,
+                    borderWidth:
+                    theme.components.button.variants.secondary.borderWidth.default,
+                    borderColor:
+                    theme.components.button.variants.secondary.color.foreground,
+                },
+                tertiary: {
+                    backgroundColor:
+                    theme.components.button.variants.tertiary.color.background,
+                    borderWidth:
+                    theme.components.button.variants.tertiary.borderWidth.default,
+                    borderColor:
+                    theme.components.button.variants.tertiary.color.background,
+                },
+                default: {
+                    borderWidth:
+                    theme.components.button.variants.primary.borderWidth.default,
+                    borderColor:
+                    theme.components.button.variants.primary.color.background,
+                    backgroundColor:
+                    theme.components.button.variants.primary.color.background,
+                },
+            },
         },
-        md: {
-          paddingHorizontal: theme.components.button.spacings.md.horizontal,
-          paddingVertical: theme.components.button.spacings.md.vertical,
-        },
-        lg: {
-          paddingHorizontal: theme.components.button.spacings.lg.horizontal,
-          paddingVertical: theme.components.button.spacings.lg.vertical,
-        },
-        default: {
-          paddingHorizontal: theme.components.button.spacings.md.horizontal,
-          paddingVertical: theme.components.button.spacings.md.vertical,
-        },
-      },
-      variant: {
-        primary: {
-          borderWidth:
-            theme.components.button.variants.primary.borderWidth.default,
-          borderColor:
-            theme.components.button.variants.primary.color.background,
-          backgroundColor:
-            theme.components.button.variants.primary.color.background,
-        },
-        secondary: {
-          backgroundColor:
-            theme.components.button.variants.secondary.color.background,
-          borderWidth:
-            theme.components.button.variants.secondary.borderWidth.default,
-          borderColor:
-            theme.components.button.variants.secondary.color.foreground,
-        },
-        tertiary: {
-          backgroundColor:
-            theme.components.button.variants.tertiary.color.background,
-          borderWidth:
-            theme.components.button.variants.tertiary.borderWidth.default,
-          borderColor:
-            theme.components.button.variants.tertiary.color.background,
-        },
-        default: {
-          borderWidth:
-            theme.components.button.variants.primary.borderWidth.default,
-          borderColor:
-            theme.components.button.variants.primary.color.background,
-          backgroundColor:
-            theme.components.button.variants.primary.color.background,
-        },
-      },
     },
-  },
-  pressed: (variant) => {
-    switch (variant) {
-      case "tertiary":
-        return {
-          borderWidth:
-            theme.components.button.variants.tertiary.borderWidth.pressed,
-          backgroundColor:
-            theme.components.button.variants.tertiary.color.pressed,
-        };
-      case "secondary":
-        return {
-          borderWidth:
-            theme.components.button.variants.secondary.borderWidth.pressed,
-          backgroundColor:
-            theme.components.button.variants.secondary.color.pressed,
-        };
-      default:
-        return {
-          borderWidth:
-            theme.components.button.variants.primary.borderWidth.pressed,
-          backgroundColor:
-            theme.components.button.variants.primary.color.pressed,
-        };
-    }
-  },
-  disabled: (variant) => {
-    switch (variant) {
-      case "tertiary":
-        return {
-          backgroundColor:
-            theme.components.button.variants.tertiary.color.disabled.background,
-          borderColor:
-            theme.components.button.variants.tertiary.color.disabled.background,
-          borderWidth:
-            theme.components.button.variants.tertiary.borderWidth.disabled,
-        };
-      case "secondary":
-        return {
-          backgroundColor:
-            theme.components.button.variants.secondary.color.disabled
-              .background,
-          borderColor:
-            theme.components.button.variants.secondary.color.disabled
-              .foreground,
-          borderWidth:
-            theme.components.button.variants.secondary.borderWidth.disabled,
-        };
-      default:
-        return {
-          backgroundColor:
-            theme.components.button.variants.primary.color.disabled.background,
-          borderColor:
-            theme.components.button.variants.primary.color.disabled.background,
-          borderWidth:
-            theme.components.button.variants.primary.borderWidth.disabled,
-        };
-    }
-  },
-  text: {
-    fontFamily: theme.components.button.font,
-  },
+    pressed: (variant) => {
+        switch (variant) {
+            case "tertiary":
+                return {
+                    borderWidth:
+                    theme.components.button.variants.tertiary.borderWidth.pressed,
+                    backgroundColor:
+                    theme.components.button.variants.tertiary.color.pressed,
+                };
+            case "secondary":
+                return {
+                    borderWidth:
+                    theme.components.button.variants.secondary.borderWidth.pressed,
+                    backgroundColor:
+                    theme.components.button.variants.secondary.color.pressed,
+                };
+            default:
+                return {
+                    borderWidth:
+                    theme.components.button.variants.primary.borderWidth.pressed,
+                    backgroundColor:
+                    theme.components.button.variants.primary.color.pressed,
+                };
+        }
+    },
+    disabled: (variant) => {
+        switch (variant) {
+            case "tertiary":
+                return {
+                    backgroundColor:
+                    theme.components.button.variants.tertiary.color.disabled.background,
+                    borderColor:
+                    theme.components.button.variants.tertiary.color.disabled.background,
+                    borderWidth:
+                    theme.components.button.variants.tertiary.borderWidth.disabled,
+                };
+            case "secondary":
+                return {
+                    backgroundColor:
+                    theme.components.button.variants.secondary.color.disabled
+                        .background,
+                    borderColor:
+                    theme.components.button.variants.secondary.color.disabled
+                        .foreground,
+                    borderWidth:
+                    theme.components.button.variants.secondary.borderWidth.disabled,
+                };
+            default:
+                return {
+                    backgroundColor:
+                    theme.components.button.variants.primary.color.disabled.background,
+                    borderColor:
+                    theme.components.button.variants.primary.color.disabled.background,
+                    borderWidth:
+                    theme.components.button.variants.primary.borderWidth.disabled,
+                };
+        }
+    },
+    text: {
+        fontFamily: theme.components.button.font,
+    },
 }));

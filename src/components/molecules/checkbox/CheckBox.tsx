@@ -8,7 +8,7 @@ import {
   useStyles,
 } from "react-native-unistyles";
 
-import { UIContext } from "../../../context/context";
+import { UIContext } from "../../../context";
 import { HelperText } from "../../atoms/helper-text/HelperText";
 import { Typography } from "../../atoms/typography/Typography";
 import { UISlot } from "../../atoms/ui-slot/UISlot";
@@ -74,11 +74,15 @@ export const CheckBox = ({
                   <UISlot element={<CheckIcon />} />
                 </CheckboxPrimitive.Indicator>
               </CheckboxPrimitive.Root>
-              {label ? <Typography>{label}</Typography> : null}
+
+                    {label ? (
+                        <Typography style={styles.label}>{label}</Typography>
+                    ) : null}
+
             </>
           )}
         </Pressable>
-        {helperText ? <HelperText>{helperText}</HelperText> : null}
+        {helperText ? <HelperText style={styles.helperText}>{helperText}</HelperText> : null}
       </UIContext.Provider>
     </View>
   );
@@ -88,7 +92,6 @@ const styleSheet = createStyleSheet((theme) => ({
   root: {
     flexDirection: "row",
     alignItems: "center",
-    gap: theme.spacing.sm,
   },
   box: {
     justifyContent: "center",
@@ -121,7 +124,6 @@ const styleSheet = createStyleSheet((theme) => ({
       },
       disabled: {
         true: {
-          opacity: theme.components.disabled.opacity,
           borderColor:
             theme.components.input.variants.disabled.color.foreground,
           backgroundColor:
@@ -130,6 +132,34 @@ const styleSheet = createStyleSheet((theme) => ({
         },
       },
     },
+  },
+  label: {
+    fontFamily: theme.components.checkbox.label.font,
+    marginLeft: theme.components.checkbox.label.spacing.vertical,
+    color: theme.components.input.variants.default.color.foreground,
+    variants: {
+      active: {
+        true: {
+          color: theme.components.checkbox.label.variant.active.color,
+          fontFamily: theme.components.checkbox.label.variant.active.font,
+        }
+      },
+      error: {
+        true: {
+          color: theme.components.input.variants.error.color.foreground,
+          fontFamily: theme.components.checkbox.label.font,
+        }
+      },
+      disabled: {
+        true: {
+          color: theme.components.input.variants.disabled.color.foreground,
+          fontFamily: theme.components.checkbox.label.font,
+        }
+      }
+    }
+  },
+  helperText: {
+    marginTop: theme.components.input.spacings.helpertext,
   },
   pressed: {
     backgroundColor: theme.components.input.variants.pressed.color,

@@ -5,6 +5,7 @@ import { createStyleSheet, UnistylesRegistry, useStyles } from "react-native-uni
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import { Root } from "./src/Root";
+import { useFonts } from "expo-font";
 
 // override library types
 declare module "react-native-unistyles" {
@@ -22,6 +23,18 @@ UnistylesRegistry.addThemes({
 
 export default function App() {
   const { styles } = useStyles(stylesheet);
+
+  const [loaded] = useFonts({
+    SpaceMonoRegular: require("./assets/font/SpaceMono-Regular.ttf"),
+    SpaceMonoBold: require("./assets/font/SpaceMono-Bold.ttf"),
+    FrauncesRegular: require("./assets/font/Fraunces_72pt_Soft-Regular.ttf"),
+    FrauncesBold: require("./assets/font/Fraunces_72pt_Soft-Bold.ttf"),
+  });
+
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <SafeAreaProvider>
       <View style={styles.container}>

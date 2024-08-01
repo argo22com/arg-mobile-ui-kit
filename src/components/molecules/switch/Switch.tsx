@@ -9,7 +9,7 @@ import Animated, {
 } from "react-native-reanimated";
 import { createStyleSheet, useStyles } from "react-native-unistyles";
 
-import { UIContext } from "../../../context/context";
+import { UIContext } from "../../../context";
 import { HelperText } from "../../atoms/helper-text/HelperText";
 import { Typography } from "../../atoms/typography/Typography";
 
@@ -77,11 +77,13 @@ export const Switch = ({
                   </SwitchPrimitive.Thumb>
                 </Animated.View>
               </SwitchPrimitive.Root>
-              {label ? <Typography>{label}</Typography> : null}
+                {label ? (
+                    <Typography style={styles.label}>{label}</Typography>
+                ) : null}
             </>
           )}
         </Pressable>
-        {helperText ? <HelperText>{helperText}</HelperText> : null}
+        {helperText ? <HelperText style={styles.helperText}>{helperText}</HelperText> : null}
       </UIContext.Provider>
     </View>
   );
@@ -96,12 +98,11 @@ const styleSheet = createStyleSheet((theme) => ({
   root: {
     flexDirection: "row",
     alignItems: "center",
-    gap: theme.spacing.sm,
   },
   thumb: {
     width: theme.sizes.switch - theme.components.switch.spacing.horizontal * 2,
     height: theme.sizes.switch - theme.components.switch.spacing.vertical * 2,
-    borderRadius: theme.components.input.borderRadius,
+    borderRadius: theme.components.switch.borderRadius,
   },
   switch: {
     width: theme.sizes.switch * 2,
@@ -111,7 +112,8 @@ const styleSheet = createStyleSheet((theme) => ({
 
     justifyContent: "center",
 
-    borderRadius: theme.components.input.borderRadius,
+    borderRadius: theme.components.switch.borderRadius,
+
     borderColor: theme.components.input.variants.default.color.foreground,
     borderWidth: theme.components.input.variants.default.borderWidth,
 
@@ -128,7 +130,6 @@ const styleSheet = createStyleSheet((theme) => ({
       },
       disabled: {
         true: {
-          opacity: theme.components.disabled.opacity,
           borderColor:
             theme.components.input.variants.disabled.color.foreground,
           backgroundColor:
@@ -137,6 +138,28 @@ const styleSheet = createStyleSheet((theme) => ({
         },
       },
     },
+  },
+  label: {
+    marginLeft: theme.components.switch.label.spacing.vertical,
+    fontFamily: theme.components.switch.label.font,
+
+    variants: {
+      active: {
+        true: {
+          fontFamily: theme.components.radio.radioLabel.variant.active.font,
+          color: theme.components.switch.label.variant.active.color,
+        }
+      },
+      disabled: {
+        true: {
+          fontFamily: theme.components.switch.label.font,
+          color: theme.components.input.variants.disabled.color.foreground,
+        }
+      },
+    }
+  },
+  helperText: {
+    marginTop: theme.components.input.spacings.helpertext,
   },
   pressed: {
     backgroundColor: theme.components.input.variants.pressed.color,

@@ -49,30 +49,26 @@ export const RadioGroup = ({
   }, [styles]);
 
   return (
-    <View {...rest}>
-      <UIContext.Provider value={{ color: uiColor }}>
-        <RadioGroupPrimitive.Root
-          value={value}
-          onValueChange={onValueChange}
-          style={styles.root}
-        >
-          {label && <Label>{label}</Label>}
-          {options.map((item) => (
-            <Radio
-              label={item.label}
-              value={item.value}
-              key={item.value}
-              selected={value === item.value}
-              disabled={disabled}
-              error={error}
-              onPress={() => onValueChange(item.value)}
-            />
-          ))}
-        </RadioGroupPrimitive.Root>
+      <View {...rest}>
+        <UIContext.Provider value={{ color: uiColor }}>
+          {label && <Label style={styles.label}>{label}</Label>}
+          <RadioGroupPrimitive.Root value={value} onValueChange={onValueChange} style={styles.root}>
+            {options.map((item) => (
+                <Radio
+                    label={item.label}
+                    value={item.value}
+                    key={item.value}
+                    selected={value === item.value}
+                    disabled={disabled}
+                    error={error}
+                    onPress={() => onValueChange(item.value)}
+                />
+            ))}
+          </RadioGroupPrimitive.Root>
 
-        {helperText && <HelperText>{helperText}</HelperText>}
-      </UIContext.Provider>
-    </View>
+          {helperText && <HelperText style={styles.helperText}>{helperText}</HelperText>}
+        </UIContext.Provider>
+      </View>
   );
 };
 
@@ -87,7 +83,6 @@ const radioGroupStylesheet = createStyleSheet((theme) => ({
       },
       disabled: {
         true: {
-          opacity: theme.components.disabled.opacity,
           color: theme.components.input.variants.disabled.color.foreground,
         },
       },
@@ -103,6 +98,12 @@ const radioGroupStylesheet = createStyleSheet((theme) => ({
       },
     },
   },
+  label: {
+    marginBottom: theme.components.input.spacings.label,
+  },
+  helperText: {
+    marginTop: theme.components.input.spacings.helpertext,
+  }
 }));
 
 type RadioProps = {
@@ -110,48 +111,46 @@ type RadioProps = {
   error?: boolean;
   style?: StyleProp<ViewStyle>;
 } & Option &
-  Omit<PressableProps, "style">;
+    Omit<PressableProps, "style">;
 
-const Radio = ({
-  value,
-  label,
-  selected,
-  disabled,
-  error,
-  style,
-  ...rest
-}: RadioProps) => {
+const Radio = ({ value, label, selected, disabled, error, style, ...rest }: RadioProps) => {
   const { styles } = useStyles(radioStylesheet, {
     selected,
     disabled: !!disabled,
     error: !!error,
   });
+  const isActive = selected && !disabled && !error;
 
   return (
-    <Pressable disabled={disabled} style={[styles.root, style]} {...rest}>
-      {({ pressed: rootPressed }) => (
-        <UIContext.Provider
-          value={{
-            color: (styles.radio as ViewStyle).borderColor,
-          }}
-        >
-          <RadioGroupPrimitive.Item
-            value={value}
-            aria-labelledby={label}
-            disabled={disabled}
-            style={({ pressed }) => [
-              styles.radio,
-              (pressed || rootPressed) && styles.pressed,
-            ]}
-          >
-            <RadioGroupPrimitive.Indicator>
-              <View style={styles.dot} />
-            </RadioGroupPrimitive.Indicator>
-          </RadioGroupPrimitive.Item>
-          <Typography nativeID={label}>{label}</Typography>
-        </UIContext.Provider>
-      )}
-    </Pressable>
+      <Pressable disabled={disabled} style={[styles.root, style]} {...rest}>
+        {({ pressed: rootPressed }) => (
+            <UIContext.Provider
+                value={{
+                  color: (styles.radio as ViewStyle).borderColor,
+                }}
+            >
+              <RadioGroupPrimitive.Item
+                  value={value}
+                  aria-labelledby={label}
+                  disabled={disabled}
+                  style={({ pressed }) => [
+                    styles.radio,
+                    (pressed || rootPressed) && styles.pressed,
+                  ]}
+              >
+                <RadioGroupPrimitive.Indicator>
+                  <View style={styles.dot} />
+                </RadioGroupPrimitive.Indicator>
+              </RadioGroupPrimitive.Item>
+              <Typography
+                  style={[styles.label, isActive && styles.labelActive]}
+                  nativeID={label}
+              >
+                {label}
+              </Typography>
+            </UIContext.Provider>
+        )}
+      </Pressable>
   );
 };
 
@@ -169,7 +168,6 @@ const radioStylesheet = createStyleSheet((theme) => ({
       },
       disabled: {
         true: {
-          opacity: theme.components.disabled.opacity,
           color: theme.components.input.variants.disabled.color.foreground,
         },
       },
@@ -206,7 +204,6 @@ const radioStylesheet = createStyleSheet((theme) => ({
       },
       disabled: {
         true: {
-          opacity: theme.components.disabled.opacity,
           borderColor:
             theme.components.input.variants.disabled.color.foreground,
           backgroundColor:
@@ -241,23 +238,30 @@ const radioStylesheet = createStyleSheet((theme) => ({
       selected: {
         true: {
           backgroundColor:
-            theme.components.input.variants.active.color.foreground,
+          theme.components.input.variants.active.color.foreground,
         },
       },
       disabled: {
         true: {
-          opacity: theme.components.disabled.opacity,
           backgroundColor:
-            theme.components.input.variants.disabled.color.foreground,
+          theme.components.input.variants.disabled.color.foreground,
         },
       },
       error: {
         true: {
           backgroundColor:
-            theme.components.input.variants.error.color.foreground,
+          theme.components.input.variants.error.color.foreground,
         },
       },
     },
+  },
+  label: {
+    fontFamily: theme.components.radio.radioLabel.font,
+    marginLeft: theme.components.radio.radioLabel.spacing.vertical,
+  },
+  labelActive: {
+    color: theme.components.radio.radioLabel.variant.active.color,
+    fontFamily: theme.components.radio.radioLabel.variant.active.font,
   },
   pressed: {
     backgroundColor: theme.components.input.variants.pressed.color,
