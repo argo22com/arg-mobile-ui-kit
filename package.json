@@ -37,21 +37,21 @@
     "@rn-primitives/checkbox": "^1.0.3",
     "@rn-primitives/portal": "^1.0.3",
     "@rn-primitives/radio-group": "^1.0.3",
-    "@rn-primitives/select": "^1.0.3",
+    "@rn-primitives/select": "^1.0.4",
     "@rn-primitives/switch": "^1.0.3",
     "@rn-primitives/toast": "^1.0.3",
-    "lucide-react-native": "^0.417.0"
+    "lucide-react-native": "^0.419.0"
   },
   "devDependencies": {
-    "@types/react": "^18.0.25",
+    "@types/react": "~18.2.79",
     "expo": "~51.0.22",
     "expo-module-scripts": "^3.5.2",
     "expo-modules-core": "^1.12.19",
     "react": "18.2.0",
     "react-native": "0.74.3",
-    "react-native-reanimated": "^3.14.0",
-    "react-native-safe-area-context": "^4.10.8",
-    "react-native-svg": "^15.4.0",
+    "react-native-reanimated": "~3.10.1",
+    "react-native-safe-area-context": "4.10.5",
+    "react-native-svg": "15.2.0",
     "react-native-unistyles": "^2.9.0"
   },
   "peerDependencies": {
@@ -62,22 +62,5 @@
     "react-native-safe-area-context": "*",
     "react-native-svg": "*",
     "react-native-unistyles": "*"
-  },
-  "exports": {
-    ".": {
-      "import": "./build/index.js"
-    },
-    "./icons": {
-      "import": "./build/icons/index.js"
-    },
-    "./context": {
-      "import": "./build/context/index.js"
-    },
-    "./theme": {
-      "import": "./build/theme/index.js"
-    },
-    "./toast-manager": {
-      "import": "./build/toast-manager/index.js"
-    }
   }
 }
