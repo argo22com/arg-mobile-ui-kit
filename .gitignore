@@ -61,3 +61,7 @@ yarn-error.log
 .yarnrc.yml
 
 *.tgz
+# Expo
+.expo
+dist/
+web-build/
