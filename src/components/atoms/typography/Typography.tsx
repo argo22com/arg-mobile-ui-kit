@@ -19,6 +19,7 @@ export const Typography = ({
   variant,
   bold,
   disabled,
+  centered,
   error,
   color,
   ...rest
@@ -30,6 +31,7 @@ export const Typography = ({
     color,
     disabled,
     error,
+    centered,
     variant,
   });
 
@@ -86,7 +88,12 @@ export const typographyStyleSheet = createStyleSheet((theme) => ({
       },
       error: {
         true: {
-          color: theme.color.error["400"],
+          color: theme.color.error["500"],
+        },
+      },
+      centered: {
+        true: {
+          textAlign: "center",
         },
       },
       variant: {
