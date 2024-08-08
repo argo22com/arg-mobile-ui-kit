@@ -1,3 +1,5 @@
+import { deepMerge } from "../utils/deepMerge";
+
 export const colors = {
     base: {
         white: "#ffffff",
@@ -93,7 +95,7 @@ export const fontSizes = {
     md: 16,
     lg: 18,
     xl: 24,
-    "2xl": 24,
+    "2xl": 48,
 }
 
 export const borderWidth = {
@@ -102,267 +104,293 @@ export const borderWidth = {
     md: 2,
 }
 
-export const defaultTheme = {
-    colors,
+export const sizes = {
+    checkbox: 24,
+    radio: 18,
+    icon: 24,
+    switch: 24,
+}
+
+const themeTokens = {
+    color: colors,
     spacing: spacings,
     fontFamily: fonts,
     fontSize: fontSizes,
     borderRadius: borderRadiuses,
-    sizes: {
-        checkbox: 24,
-        radio: 18,
-        icon: 24,
-        switch: 24,
-    },
-    components: {
-        typography: {
-            colors: {
-                primary: colors.neutral["800"],
-                secondary: colors.neutral["500"],
-                label: colors.neutral["500"],
-                placeholder: colors.neutral["400"],
-            },
-        },
-        input: {
-            borderRadius: borderRadiuses.xs,
-            // Aligns Label and HelperText with input value from left
-            alignComponentsWithInputValue: false,
-            spacings: {
-                vertical: spacings.sm,
-                horizontal: spacings.md,
-                label: spacings["2xs"],
-                helpertext: spacings["2xs"],
-            },
-            fonts: {
-                label: fonts.heading.light,
-                text: fonts.paragraph.light,
-            },
-            variants: {
-                active: {
-                    borderWidth: borderWidth.sm,
-                    color: {
-                        background: colors.base.white,
-                        foreground: colors.primary["500"],
-                    },
-                },
-                disabled: {
-                    borderWidth: borderWidth.sm,
-                    color: {
-                        background: colors.neutral["100"],
-                        foreground: colors.neutral["500"],
-                    },
-                },
-                error: {
-                    borderWidth: borderWidth.sm,
-                    color: {
-                        background: colors.error["100"],
-                        foreground: colors.error["500"],
-                    },
-                },
-                default: {
-                    borderWidth: borderWidth.sm,
-                    color: {
-                        background: colors.base.white,
-                        foreground: colors.neutral["800"],
-                    },
-                },
-                pressed: {
-                    color: colors.primary["100"],
-                },
-            },
-        },
-        selectOption: {
-            spacing: {
-                vertical: spacings.sm,
-                horizontal: spacings.md,
-            },
-            variants: {
-                pressed: {
-                    color: colors.primary["100"],
-                },
-                active: {
-                    color: colors.success["100"],
-                },
-            },
-        },
-        checkbox: {
-            borderRadius: borderRadiuses.xs,
-            label: {
-                font: fonts.paragraph.light,
-                spacing: {
-                    vertical: spacings.md,
-                },
-                variant: {
-                    active: {
-                        color: colors.neutral["800"],
-                        font: fonts.paragraph.strong,
-                    },
-                },
-            },
-        },
-        switch: {
-            borderRadius: borderRadiuses.md,
-            label: {
-                font: fonts.paragraph.light,
-                spacing: {
-                    vertical: spacings.sm,
-                },
-                variant: {
-                    active: {
-                        color: colors.neutral["800"],
-                        font: fonts.paragraph.strong,
-                    },
-                },
-            },
-            spacing: {
-                horizontal: spacings["2xs"],
-                vertical: spacings["2xs"],
-            },
-        },
-        radio: {
-            borderRadius: borderRadiuses.full,
-            groupLabel: {
-                // follows input label config
-                variant: {
-                    active: {
-                        color: colors.neutral["800"],
-                    },
-                },
-            },
-            radioLabel: {
-                font: fonts.paragraph.light,
-                spacing: {
-                    vertical: spacings.sm,
-                },
-                variant: {
-                    active: {
-                        color: colors.neutral["800"],
-                        font: fonts.paragraph.strong,
-                    },
-                },
-            },
-        },
-        button: {
-            font: fonts.paragraph.light,
-            size: {
-                sm: {
-                    spacing: {
-                        vertical: spacings.sm,
-                        horizontal: spacings.md,
-                    },
-                    borderRadius: borderRadiuses.lg,
-                    gap: spacings.sm,
-                },
-                md: {
-                    spacing: {
-                        vertical: spacings.sm,
-                        horizontal: spacings.md,
-                    },
-                    borderRadius: borderRadiuses.md,
-                    gap: spacings.sm,
-                },
-                lg: {
-                    spacing: {
-                        vertical: spacings.sm,
-                        horizontal: spacings.lg,
-                    },
-                    borderRadius: borderRadiuses.sm,
-                    gap: spacings.sm,
-                },
-            },
-            variants: {
-                primary: {
-                    borderWidth: {
-                        default: borderWidth.sm,
-                        pressed: borderWidth.sm,
-                        disabled: borderWidth.sm,
-                    },
-                    color: {
-                        background: colors.primary["500"],
-                        foreground: colors.base.white,
-                        pressed: colors.primary["600"],
-                        disabled: {
-                            background: colors.neutral["500"],
-                            foreground: colors.neutral["500"],
-                        },
-                    },
-                },
-                secondary: {
-                    borderWidth: {
-                        default: borderWidth["none"],
-                        pressed: borderWidth.sm,
-                        disabled: borderWidth.sm,
-                    },
-                    color: {
-                        background: colors.primary['100'],
-                        foreground: colors.primary["500"],
-                        pressed: colors.primary["100"],
-                        disabled: {
-                            background: colors.neutral["400"],
-                            foreground: colors.neutral["500"],
-                        },
-                    },
-                },
-                tertiary: {
-                    borderWidth: {
-                        default: borderWidth.sm,
-                        pressed: borderWidth.sm,
-                        disabled: borderWidth.sm,
-                    },
-                    color: {
-                        background: "transparent",
-                        foreground: colors.primary["500"],
-                        pressed: colors.primary["100"],
-                        disabled: {
-                            background: "transparent",
-                            foreground: colors.neutral["500"],
-                        },
-                    },
-                },
-            },
-        },
-        toast: {
-            borderRadius: borderRadiuses.md,
-            iconSize: 24,
-            spacings: {
-                vertical: spacings.sm,
-                horizontal: spacings.md,
-            },
-            fonts: {
-                label: fonts.paragraph.strong,
-                text: fonts.paragraph.light,
-            },
-            pressedOpacity: 0.7,
-            variants: {
-                info: {
-                    borderWidth: borderWidth.sm,
-                    color: {
-                        background: colors.info["100"],
-                        foreground: colors.info["800"],
-                    },
-                },
-                success: {
-                    borderWidth: borderWidth.sm,
-                    color: {
-                        background: colors.success["100"],
-                        foreground: colors.success["800"],
-                    },
-                },
-                warning: {
-                    borderWidth: borderWidth.sm,
-                    color: {
-                        background: colors.warning["100"],
-                        foreground: colors.warning["800"],
-                    },
-                },
-                error: {
-                    borderWidth: borderWidth.sm,
-                    color: {
-                        background: colors.error["100"],
-                        foreground: colors.error["800"],
-                    },
-                },
-            },
-        },
-    },
+    borderWidth: borderWidth,
+    size: sizes,
 }
+
+type ThemeTokens = typeof themeTokens;
+
+const createThemeComponentsConfig = (tokens: ThemeTokens) => ({
+    typography: {
+        colors: {
+            primary: tokens.color.neutral["800"],
+            secondary: tokens.color.neutral["500"],
+            label: tokens.color.neutral["500"],
+            placeholder: tokens.color.neutral["400"],
+        },
+    },
+    input: {
+        borderRadius: tokens.borderRadius.xs,
+        // Aligns Label and HelperText with input value from left
+        alignComponentsWithInputValue: false,
+        spacings: {
+            vertical: tokens.spacing.sm,
+            horizontal: tokens.spacing.md,
+            label: tokens.spacing["2xs"],
+            helpertext: tokens.spacing["2xs"],
+        },
+        fonts: {
+            label: tokens.fontFamily.paragraph.light,
+            text: tokens.fontFamily.paragraph.light,
+        },
+        variants: {
+            active: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.base.white,
+                    foreground: tokens.color.primary["500"],
+                },
+            },
+            disabled: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.neutral["100"],
+                    foreground: tokens.color.neutral["500"],
+                },
+            },
+            error: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.error["100"],
+                    foreground: tokens.color.error["500"],
+                },
+            },
+            default: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.base.white,
+                    foreground: tokens.color.neutral["800"],
+                },
+            },
+            pressed: {
+                color: tokens.color.primary["100"],
+            },
+        },
+    },
+    selectOption: {
+        spacing: {
+            vertical: tokens.spacing.sm,
+            horizontal: tokens.spacing.md,
+        },
+        variants: {
+            pressed: {
+                color: tokens.color.primary["100"],
+            },
+            active: {
+                color: tokens.color.success["100"],
+            },
+        },
+    },
+    checkbox: {
+        borderRadius: tokens.borderRadius.xs,
+        label: {
+            font: tokens.fontFamily.paragraph.light,
+            spacing: {
+                vertical: tokens.spacing.md,
+            },
+            variant: {
+                active: {
+                    color: tokens.color.neutral["800"],
+                    font: tokens.fontFamily.paragraph.strong,
+                },
+            },
+        },
+    },
+    switch: {
+        borderRadius: tokens.borderRadius.md,
+        label: {
+            font: tokens.fontFamily.paragraph.light,
+            spacing: {
+                vertical: tokens.spacing.sm,
+            },
+            variant: {
+                active: {
+                    color: tokens.color.neutral["800"],
+                    font: tokens.fontFamily.paragraph.strong,
+                },
+            },
+        },
+        spacing: {
+            horizontal: tokens.spacing["2xs"],
+            vertical: tokens.spacing["2xs"],
+        },
+    },
+    radio: {
+        borderRadius: tokens.borderRadius.full,
+        groupLabel: {
+            // follows input label config
+            variant: {
+                active: {
+                    color: tokens.color.neutral["800"],
+                },
+            },
+        },
+        radioLabel: {
+            font: tokens.fontFamily.paragraph.light,
+            spacing: {
+                vertical: tokens.spacing.sm,
+            },
+            variant: {
+                active: {
+                    color: tokens.color.neutral["800"],
+                    font: tokens.fontFamily.paragraph.strong,
+                },
+            },
+        },
+    },
+    button: {
+        font: tokens.fontFamily.paragraph.light,
+        size: {
+            sm: {
+                spacing: {
+                    vertical: tokens.spacing.sm,
+                    horizontal: tokens.spacing.md,
+                },
+                borderRadius: tokens.borderRadius.lg,
+                gap: tokens.spacing.sm,
+            },
+            md: {
+                spacing: {
+                    vertical: tokens.spacing.sm,
+                    horizontal: tokens.spacing.md,
+                },
+                borderRadius: tokens.borderRadius.md,
+                gap: tokens.spacing.sm,
+            },
+            lg: {
+                spacing: {
+                    vertical: tokens.spacing.sm,
+                    horizontal: tokens.spacing.lg,
+                },
+                borderRadius: tokens.borderRadius.sm,
+                gap: tokens.spacing.sm,
+            },
+        },
+        variants: {
+            primary: {
+                borderWidth: {
+                    default: tokens.borderWidth.sm,
+                    pressed: tokens.borderWidth.sm,
+                    disabled: tokens.borderWidth.sm,
+                },
+                color: {
+                    background: tokens.color.primary["500"],
+                    foreground: tokens.color.base.white,
+                    pressed: tokens.color.primary["600"],
+                    disabled: {
+                        background: tokens.color.neutral["500"],
+                        foreground: tokens.color.neutral["500"],
+                    },
+                },
+            },
+            secondary: {
+                borderWidth: {
+                    default: borderWidth["none"],
+                    pressed: tokens.borderWidth.sm,
+                    disabled: tokens.borderWidth.sm,
+                },
+                color: {
+                    background: tokens.color.primary['100'],
+                    foreground: tokens.color.primary["500"],
+                    pressed: tokens.color.primary["100"],
+                    disabled: {
+                        background: tokens.color.neutral["400"],
+                        foreground: tokens.color.neutral["500"],
+                    },
+                },
+            },
+            tertiary: {
+                borderWidth: {
+                    default: tokens.borderWidth.sm,
+                    pressed: tokens.borderWidth.sm,
+                    disabled: tokens.borderWidth.sm,
+                },
+                color: {
+                    background: "transparent",
+                    foreground: tokens.color.primary["500"],
+                    pressed: tokens.color.primary["100"],
+                    disabled: {
+                        background: "transparent",
+                        foreground: tokens.color.neutral["500"],
+                    },
+                },
+            },
+        },
+    },
+    toast: {
+        borderRadius: tokens.borderRadius.md,
+        iconSize: tokens.size.icon,
+        spacings: {
+            vertical: tokens.spacing.sm,
+            horizontal: tokens.spacing.md,
+        },
+        fonts: {
+            label: tokens.fontFamily.paragraph.strong,
+            text: tokens.fontFamily.paragraph.light,
+        },
+        pressedOpacity: 0.7,
+        variants: {
+            info: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.info["100"],
+                    foreground: tokens.color.info["800"],
+                },
+            },
+            success: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.success["100"],
+                    foreground: tokens.color.success["800"],
+                },
+            },
+            warning: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.warning["100"],
+                    foreground: tokens.color.warning["800"],
+                },
+            },
+            error: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.error["100"],
+                    foreground: tokens.color.error["800"],
+                },
+            },
+        },
+    },
+
+})
+
+type ThemeComponentsConfig = ReturnType<typeof createThemeComponentsConfig>;
+
+export const createTheme = (tokens?: Partial<ThemeTokens>, componentsConfig?: Partial<ThemeComponentsConfig>) => {
+    const mergedTokens = deepMerge<ThemeTokens>(themeTokens, tokens ?? {});
+    const baseComponentsConfig = createThemeComponentsConfig(mergedTokens);
+
+    const mergedComponentsConfig = deepMerge<ThemeComponentsConfig>(createThemeComponentsConfig(mergedTokens), componentsConfig ?? {});
+
+    return {
+        ...mergedTokens,
+        components: {
+            ...baseComponentsConfig,
+            ...mergedComponentsConfig,
+        }
+    }
+}
+
+export const defaultTheme = createTheme();

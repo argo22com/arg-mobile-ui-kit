@@ -51,7 +51,7 @@ export const CheckBox = ({
       <UIContext.Provider
         value={{
           color: uiColor,
-          size: theme.sizes.checkbox * 0.75,
+          size: theme.size.checkbox * 0.75,
         }}
       >
         <Pressable
@@ -102,8 +102,8 @@ const styleSheet = createStyleSheet((theme) => ({
     borderWidth: theme.components.input.variants.default.borderWidth,
     backgroundColor: theme.components.input.variants.default.color.background,
 
-    width: theme.sizes.checkbox,
-    height: theme.sizes.checkbox,
+    width: theme.size.checkbox,
+    height: theme.size.checkbox,
 
     variants: {
       active: {

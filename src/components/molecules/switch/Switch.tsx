@@ -42,7 +42,7 @@ export const Switch = ({
 
   const translateX = useDerivedValue(() =>
     checked
-      ? theme.sizes.switch - theme.components.switch.spacing.horizontal
+      ? theme.size.switch - theme.components.switch.spacing.horizontal
       : 0,
   );
 
@@ -100,13 +100,13 @@ const styleSheet = createStyleSheet((theme) => ({
     alignItems: "center",
   },
   thumb: {
-    width: theme.sizes.switch - theme.components.switch.spacing.horizontal * 2,
-    height: theme.sizes.switch - theme.components.switch.spacing.vertical * 2,
+    width: theme.size.switch - theme.components.switch.spacing.horizontal * 2,
+    height: theme.size.switch - theme.components.switch.spacing.vertical * 2,
     borderRadius: theme.components.switch.borderRadius,
   },
   switch: {
-    width: theme.sizes.switch * 2,
-    height: theme.sizes.switch,
+    width: theme.size.switch * 2,
+    height: theme.size.switch,
     paddingHorizontal: theme.components.switch.spacing.horizontal,
     paddingVertical: theme.components.switch.spacing.vertical,
 

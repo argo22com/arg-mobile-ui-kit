@@ -184,8 +184,8 @@ const radioStylesheet = createStyleSheet((theme) => ({
 
     borderRadius: theme.components.radio.borderRadius,
 
-    width: theme.sizes.radio,
-    height: theme.sizes.radio,
+    width: theme.size.radio,
+    height: theme.size.radio,
 
     variants: {
       selected: {
@@ -230,8 +230,8 @@ const radioStylesheet = createStyleSheet((theme) => ({
     },
   },
   dot: {
-    width: theme.sizes.radio * 0.6,
-    height: theme.sizes.radio * 0.6,
+    width: theme.size.radio * 0.6,
+    height: theme.size.radio * 0.6,
     borderRadius: theme.components.radio.borderRadius,
 
     variants: {

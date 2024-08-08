@@ -24,8 +24,8 @@ export const Icon = ({
   const { theme } = useStyles();
   return (
     <SvgIcon
-      width={size ?? theme.sizes.icon}
-      height={size ?? theme.sizes.icon}
+      width={size ?? theme.size.icon}
+      height={size ?? theme.size.icon}
       stroke={color}
       strokeWidth={
         absoluteStrokeWidth

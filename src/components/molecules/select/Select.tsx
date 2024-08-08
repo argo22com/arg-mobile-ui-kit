@@ -68,7 +68,7 @@ export const Select = ({
       <UIContext.Provider
         value={{
           color: (styles.root as ViewStyle).borderColor,
-          size: theme.sizes.icon,
+          size: theme.size.icon,
         }}
       >
         {label ? (

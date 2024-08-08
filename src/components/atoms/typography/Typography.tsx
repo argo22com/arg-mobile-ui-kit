@@ -6,7 +6,7 @@ import {
   useStyles,
 } from "react-native-unistyles";
 
-import { UIContext } from "../../../context/context";
+import { UIContext } from "../../../context";
 
 type ComponentVariants = UnistylesVariants<typeof typographyStyleSheet>;
 export type TypographyProps = { bold?: boolean } & TextProps &
@@ -81,12 +81,12 @@ export const typographyStyleSheet = createStyleSheet((theme) => ({
       },
       disabled: {
         true: {
-          color: theme.colors.neutral["400"],
+          color: theme.color.neutral["400"],
         },
       },
       error: {
         true: {
-          color: theme.colors.error["400"],
+          color: theme.color.error["400"],
         },
       },
       variant: {
