@@ -38,7 +38,7 @@ export const InputExample = () => {
         endSlot={<LockIcon />}
       />
       <View style={{ flexDirection: "row", alignItems:"center", gap: 8 }}>
-        <Input placeholder="What are you looking for" startSlot={<Search size={16} absoluteStrokeWidth={true} />} />
+        <Input style={{flex: 1}} placeholder="What are you looking for" startSlot={<Search size={16} absoluteStrokeWidth={true} />} />
         <Button>Search</Button>
       </View>
     </View>

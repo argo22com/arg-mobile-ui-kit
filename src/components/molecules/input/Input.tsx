@@ -15,7 +15,7 @@ import {
 } from "react-native";
 import { createStyleSheet, useStyles } from "react-native-unistyles";
 
-import { UIContext } from "../../../context/context";
+import { UIContext } from "../../../context";
 import { HelperText } from "../../atoms/helper-text/HelperText";
 import { Label } from "../../atoms/label/Label";
 import { UISlot } from "../../atoms/ui-slot/UISlot";
@@ -50,7 +50,6 @@ export const Input = forwardRef<Partial<TextInput>, InputProps>(
       startSlot,
       placeholder,
       textInputProps,
-      style,
       ...rest
     },
     ref,
@@ -75,7 +74,7 @@ export const Input = forwardRef<Partial<TextInput>, InputProps>(
     }));
 
     return (
-      <View style={[styles.flexFill, style]} {...rest}>
+      <View {...rest}>
         <UIContext.Provider
           value={{
             color: (styles.root as ViewStyle).borderColor,
@@ -140,10 +139,9 @@ export const Input = forwardRef<Partial<TextInput>, InputProps>(
 Input.displayName = "Input";
 
 const stylesheet = createStyleSheet((theme) => ({
-  flexFill: {
-    flex: 1,
-  },
   root: {
+    minWidth: 150,
+
     borderWidth: theme.components.input.variants.default.borderWidth,
     borderRadius: theme.components.input.borderRadius,
     borderColor: theme.components.input.variants.default.color.foreground,
