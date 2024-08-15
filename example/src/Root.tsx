@@ -28,6 +28,7 @@ export const Root = () => {
       <SwitchExample />
       <ToastManagerExample />
       <TypographyExample />
+      <LoaderExample/>
     </View>
   </ScrollView>
 }
