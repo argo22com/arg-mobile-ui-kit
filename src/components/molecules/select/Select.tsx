@@ -151,7 +151,7 @@ export const Select = ({
 
 const stylesheet = createStyleSheet((theme) => ({
   flexFill: {
-    flex: 1,
+    flexGrow:1,
   },
   root: {
     borderWidth: theme.components.input.variants.default.borderWidth,
@@ -200,16 +200,16 @@ const stylesheet = createStyleSheet((theme) => ({
       }
     }
   },
-  trigger: {
-    paddingHorizontal: theme.components.input.spacings.horizontal,
-    paddingVertical: theme.components.input.spacings.vertical,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flex: 1,
-    overflow: "hidden",
-  },
-  overlay: {
+    trigger: {
+        paddingHorizontal: theme.components.input.spacings.horizontal,
+        paddingVertical: theme.components.input.spacings.vertical,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        height: theme.fontSize.md + (theme.components.input.spacings.vertical * 4),
+        alignItems: "center",
+        overflow: "hidden",
+    },
+    overlay: {
     ...StyleSheet.absoluteFillObject,
   },
   content: {
