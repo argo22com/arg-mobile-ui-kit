@@ -3,12 +3,13 @@ import {ComponentProps, useContext, useEffect, useRef} from "react";
 import {Animated, Easing, View} from "react-native";
 
 import {UIContext} from "../../../context";
+import {createStyleSheet, useStyles} from "react-native-unistyles";
 
 export type LoaderProps = ComponentProps<typeof LucideLoaderCircle>;
 
 export const Loader = ({ style, ...rest }: LoaderProps) => {
     const contextStyles = useContext(UIContext);
-
+    const { styles } = useStyles(loaderStyleSheet);
     const rotateAnim = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
@@ -32,7 +33,7 @@ export const Loader = ({ style, ...rest }: LoaderProps) => {
     };
 
     return (
-        <View style={{alignItems: "center", justifyContent: "center", width: "auto"}}>
+        <View style={styles.root}>
             <Animated.View style={animatedStyle}>
                 <LucideLoaderCircle
                     size={contextStyles?.size}
@@ -43,3 +44,10 @@ export const Loader = ({ style, ...rest }: LoaderProps) => {
         </View>
     );
 };
+
+const loaderStyleSheet = createStyleSheet((theme) => ({
+    root: {
+        alignItems: "center",
+        justifyContent: "center",
+    },
+}));
