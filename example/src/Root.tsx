@@ -11,6 +11,7 @@ import { SelectExample } from "./examples/Select.example";
 import { ToastExample } from "./examples/Toast.example";
 import { ToastManagerExample } from "./examples/ToastManager.example";
 import { TypographyExample } from "./examples/Typography.example";
+import {LoaderExample} from "./examples/Loader.example";
 
 export const Root = () => {
   const { styles } = useStyles(stylesheet);
