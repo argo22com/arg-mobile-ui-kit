@@ -5,7 +5,7 @@ import { StyleSheet, View, type ViewProps, type ViewStyle } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { createStyleSheet, useStyles } from "react-native-unistyles";
 
-import { UIContext } from "../../../context/context";
+import { UIContext } from "../../../context";
 import { HelperText } from "../../atoms/helper-text/HelperText";
 import { Label } from "../../atoms/label/Label";
 import {
@@ -40,7 +40,6 @@ export const Select = ({
   error,
   endSlotOpened = <ChevronUp />,
   endSlotClosed = <ChevronDown />,
-  style,
   ...rest
 }: SelectProps) => {
   const insets = useSafeAreaInsets();
@@ -64,7 +63,7 @@ export const Select = ({
   };
 
   return (
-    <View style={[styles.flexFill, style]} {...rest}>
+    <View {...rest}>
       <UIContext.Provider
         value={{
           color: (styles.root as ViewStyle).borderColor,
@@ -150,10 +149,9 @@ export const Select = ({
 };
 
 const stylesheet = createStyleSheet((theme) => ({
-  flexFill: {
-    flex: 1,
-  },
   root: {
+    minWidth: 150,
+
     borderWidth: theme.components.input.variants.default.borderWidth,
     borderRadius: theme.components.input.borderRadius,
     borderColor: theme.components.input.variants.default.color.foreground,
@@ -200,16 +198,15 @@ const stylesheet = createStyleSheet((theme) => ({
       }
     }
   },
-  trigger: {
-    paddingHorizontal: theme.components.input.spacings.horizontal,
-    paddingVertical: theme.components.input.spacings.vertical,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    flex: 1,
-    overflow: "hidden",
-  },
-  overlay: {
+    trigger: {
+        paddingHorizontal: theme.components.input.spacings.horizontal,
+        paddingVertical: theme.components.input.spacings.vertical,
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "center",
+        overflow: "hidden",
+    },
+    overlay: {
     ...StyleSheet.absoluteFillObject,
   },
   content: {

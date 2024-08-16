@@ -38,10 +38,11 @@ local.properties
 android.iml
 android/app/libs
 android/keystores/debug.keystore
-
+android/
 # Cocoapods
 #
 example/ios/Pods
+ios/
 
 # Ruby
 example/vendor/
