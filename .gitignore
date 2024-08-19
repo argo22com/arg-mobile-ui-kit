@@ -43,7 +43,8 @@ android/
 #
 example/ios/Pods
 ios/
-
+example/ios/
+example/android/
 # Ruby
 example/vendor/
 
