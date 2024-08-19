@@ -18,6 +18,9 @@
     "android": "expo run:android",
     "ios": "expo run:ios"
   },
+  "jest": {
+    "preset": "expo-module-scripts"
+  },
   "keywords": [
     "react-native",
     "expo",
@@ -47,6 +50,8 @@
     "expo": "~51.0.22",
     "expo-module-scripts": "^3.5.2",
     "expo-modules-core": "^1.12.19",
+    "jest": "^29.4.0",
+    "jest-expo": "~51.0.3",
     "react": "18.2.0",
     "react-native": "0.74.3",
     "react-native-reanimated": "~3.10.1",
