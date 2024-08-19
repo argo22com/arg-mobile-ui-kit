@@ -1,4 +1,4 @@
-import { deepMerge } from "../utils/deepMerge";
+import { deepMerge, DeepPartial } from "../utils/deepMerge";
 
 export const colors = {
     base: {
@@ -378,7 +378,7 @@ const createThemeComponentsConfig = (tokens: ThemeTokens) => ({
 
 type ThemeComponentsConfig = ReturnType<typeof createThemeComponentsConfig>;
 
-export const createTheme = (tokens?: Partial<ThemeTokens>, componentsConfig?: Partial<ThemeComponentsConfig>) => {
+export const createTheme = (tokens?: DeepPartial<ThemeTokens>, componentsConfig?: DeepPartial<ThemeComponentsConfig>) => {
     const mergedTokens = deepMerge<ThemeTokens>(themeTokens, tokens ?? {});
     const baseComponentsConfig = createThemeComponentsConfig(mergedTokens);
 

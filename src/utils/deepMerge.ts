@@ -2,7 +2,11 @@ function isObject(item: any): boolean {
   return item !== null && typeof item === 'object' && !Array.isArray(item);
 }
 
-export function deepMerge<T extends object>(target: T, ...sources: Array<Partial<T>>): T {
+export type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : T[P];
+};
+
+export function deepMerge<T extends object>(target: T, ...sources: Array<DeepPartial<T>>): T {
   if (!sources.length) return target;
   const source = sources.shift();
 
