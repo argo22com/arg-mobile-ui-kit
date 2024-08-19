@@ -119,15 +119,26 @@ The Toast category includes components related to displaying transient notificat
 # Theming
 
 UI kit offers a way to customize components and UI tokens through themes. There is [defaultTheme](./src/theme/theme.ts) you can use as a starting point to customize the UI kit.
+Use `createTheme(tokensConfig, componentsCongif)` to customize the default theme. If you leave `createTheme()` without params, the defaultTheme will be used. In other case the config will be merged with the defaultTheme values.
 
 
 ```typescript
-import { defaultTheme, type Theme } from "@argo22/mobile-ui-kit";
+import { createTheme } from "@argo22/mobile-ui-kit";
 
-const pumpkinTheme: Theme = {
-  ...defaultTheme,
-  colors: {
-    ...defaultTheme.colors,
+const fonts = {
+  paragraph: {
+    light: "Nunito-Regular",
+    strong: "Nunito-Bold",
+  },
+  heading: {
+    light: "Nunito-Regular",
+    strong: "Nunito-Bold",
+  },
+};
+
+export const lightTheme = createTheme({
+  fontFamily: fonts,
+  color: {
     primary: {
       100: "#f6c7b4",
       400: "#f19068",
@@ -135,9 +146,8 @@ const pumpkinTheme: Theme = {
       600: "#ef6228",
       800: "#bb3d0a",
     },
-  },
-};
-
+  }
+});
 ```
 
 You can customize the theme as long as the structure stays the same. Make sure to use `Theme` type for custom themes to ensure structure integrity.
