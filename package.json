@@ -46,6 +46,9 @@
     "lucide-react-native": "^0.419.0"
   },
   "devDependencies": {
+    "@testing-library/jest-native": "^5.4.3",
+    "@testing-library/react-native": "^12.6.0",
+    "ts-jest": "^29.2.5",
     "@types/react": "~18.2.79",
     "expo": "~51.0.22",
     "expo-module-scripts": "^3.5.2",
