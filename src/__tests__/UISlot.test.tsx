@@ -1,9 +1,7 @@
 import { render } from '@testing-library/react-native';
-import React from 'react';
 import { Text, View } from 'react-native';
 import { UISlot } from '../components';
 import { UIContext } from '../context';
-jest.mock('react-native/Libraries/EventEmitter/NativeEventEmitter');
 
 const mockContextValue = {
     color: 'red',

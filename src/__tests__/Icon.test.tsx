@@ -1,9 +1,8 @@
 import { render } from '@testing-library/react-native';
 import { Icon } from '../components';
-import React from 'react';
 import Svg, { Path, SvgProps } from 'react-native-svg';
-jest.mock('react-native/Libraries/EventEmitter/NativeEventEmitter');
 
+jest.unmock('react-native-unistyles');
 
 const SvgComponent = (props: SvgProps) => (
     <Svg testID="icon-svg"  viewBox="0 0 24 24" fill="none" {...props} >

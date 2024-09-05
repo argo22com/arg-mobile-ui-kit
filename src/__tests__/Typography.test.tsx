@@ -1,33 +1,7 @@
 import {render} from '@testing-library/react-native';
 import {Typography} from '../components';
-import React from 'react';
 import {UIContext} from '../context';
 import {View} from 'react-native';
-import {createTheme} from "../theme";
-
-jest.mock('react-native/Libraries/EventEmitter/NativeEventEmitter');
-
-jest.mock('react-native-unistyles', () => {
-    const {createTheme} = require('../theme');
-    const theme = createTheme();
-    return {
-        ...jest.requireActual('react-native-unistyles'),
-        useStyles: jest.fn((styleSheet, options) => {
-            const styles = styleSheet(theme);
-
-            return {
-                styles: {
-                    root: {
-                        ...styles.root,
-                        ...styles.root.variants.color[options.color],
-                        ...styles.root.variants.size[options.size],
-                    },
-                    bold: styles.bold,
-                },
-            };
-        }),
-    };
-});
 
 const mockContextValue = {
     color: 'blue',

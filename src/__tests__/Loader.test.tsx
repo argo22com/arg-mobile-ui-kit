@@ -1,8 +1,6 @@
 import { LucideLoaderCircle } from "lucide-react-native";
 import { render } from '@testing-library/react-native';
 import { Loader } from '../components';
-import React from 'react';
-jest.mock('react-native/Libraries/EventEmitter/NativeEventEmitter');
 
 describe('Loader Component', () => {
     it('should render successfully', () => {
