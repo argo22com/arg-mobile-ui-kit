@@ -15,17 +15,23 @@ import { UISlot } from "../../atoms/ui-slot/UISlot";
 
 type ComponentVariants = UnistylesVariants<typeof styleSheet>;
 
-export type CheckBoxProps = {
-  checked: boolean;
-  onChange: (checked: boolean) => void;
+type CheckBoxPropsBase = {
+    checked: boolean;
+    onChange: (checked: boolean) => void;
 
-  disabled?: boolean;
-  error?: boolean;
+    disabled?: boolean;
+    error?: boolean;
+    
+    label?: string;
+    helperText?: string;
+};
 
-  label?: string;
-  helperText?: string;
-} & ComponentVariants &
-  ViewProps;
+
+type CheckBoxProps = {
+    [P in keyof ViewProps]: ViewProps[P];
+} & {
+    [P in keyof ComponentVariants]: ComponentVariants[P];
+} & CheckBoxPropsBase;
 
 export const CheckBox = ({
   checked,
