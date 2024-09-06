@@ -96,6 +96,7 @@ export const Select = ({
               pressed && styles.pressedItem,
               styles.trigger,
             ]}
+            testID="select-trigger"
           >
             <SelectPrimitive.Value
               style={[typoStyles.root, !value && styles.placeholder]}
