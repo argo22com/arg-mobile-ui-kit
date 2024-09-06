@@ -20,7 +20,7 @@ type ButtonPropsBase = {
     loaderPosition?: "right" | "left";
 };
 
-type ButtonProps = {
+export type ButtonProps = {
     [P in keyof PressableProps]: PressableProps[P];
 } & {
     [P in keyof ComponentVariants]: ComponentVariants[P];

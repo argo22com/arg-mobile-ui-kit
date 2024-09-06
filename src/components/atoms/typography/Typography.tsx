@@ -1,4 +1,4 @@
-import {ReactNode, useContext} from "react";
+import {type ReactNode, useContext} from "react";
 import { Text, type TextProps } from "react-native";
 import {
   type UnistylesVariants,
@@ -11,11 +11,10 @@ import { UIContext } from "../../../context";
 type ComponentVariants = UnistylesVariants<typeof typographyStyleSheet>;
 export interface TypographyProps extends Omit<TextProps, 'disabled'>, ComponentVariants {
   children?: ReactNode;
-  size?: 'xl' | 'lg' | 'md' | 'sm' | 'xs';
-  color?: 'primary' | 'secondary';
-  bold?: boolean;
+    size?: 'xl' | 'lg' | 'md' | 'sm' | 'xs';
+    color?: 'primary' | 'secondary';
+    bold?: boolean;
 }
-
 
 export const Typography = ({
   children,

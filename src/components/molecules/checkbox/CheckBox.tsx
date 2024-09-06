@@ -21,13 +21,13 @@ type CheckBoxPropsBase = {
 
     disabled?: boolean;
     error?: boolean;
-    
+
     label?: string;
     helperText?: string;
 };
 
 
-type CheckBoxProps = {
+export type CheckBoxProps = {
     [P in keyof ViewProps]: ViewProps[P];
 } & {
     [P in keyof ComponentVariants]: ComponentVariants[P];

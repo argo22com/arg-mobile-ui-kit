@@ -47,7 +47,7 @@ type ToastPropsBase = {
   };
 };
 
-type ToastProps = {
+export type ToastProps = {
   [P in keyof ComponentVariants]: ComponentVariants[P];
 } & ToastPropsBase;
 
