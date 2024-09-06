@@ -30,13 +30,14 @@ const toastIcon: Record<
   error: <TriangleAlert />,
 };
 
-export type ToastProps = {
+type ToastPropsBase = {
   title?: string;
   description?: string;
   onClose: () => void;
   pressable?: boolean;
   onPress?: () => void;
   open?: boolean;
+  type?: string;
   toastType?: "background" | "foreground";
   icon?: typeof toastIcon | null;
   closeSlot?: ReactElement | null;
@@ -44,7 +45,11 @@ export type ToastProps = {
     onPress: () => void;
     slot: ReactElement;
   };
-} & ComponentVariants;
+};
+
+type ToastProps = {
+  [P in keyof ComponentVariants]: ComponentVariants[P];
+} & ToastPropsBase;
 
 export const Toast = ({
   title,
