@@ -33,7 +33,7 @@ export const Loader = ({ style, ...rest }: LoaderProps) => {
     };
 
     return (
-        <View style={styles.root}>
+        <View style={styles.root} testID={"loader"}>
             <Animated.View style={animatedStyle}>
                 <LucideLoaderCircle
                     size={contextStyles?.size}

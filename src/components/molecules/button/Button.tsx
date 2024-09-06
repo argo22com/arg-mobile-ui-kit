@@ -13,13 +13,20 @@ import { UISlot } from "../../atoms/ui-slot/UISlot";
 
 type ComponentVariants = UnistylesVariants<typeof styleSheet>;
 
-export type ButtonProps = {
-  loading?: boolean;
-  leftSlot?: ReactElement;
-  rightSlot?: ReactElement;
-  loaderPosition?: "right" | "left";
-} & ComponentVariants &
-  Omit<PressableProps, "children">;
+type ButtonPropsBase = {
+    loading?: boolean;
+    leftSlot?: ReactElement;
+    rightSlot?: ReactElement;
+    loaderPosition?: "right" | "left";
+};
+
+type ButtonProps = {
+    [P in keyof PressableProps]: PressableProps[P];
+} & {
+    [P in keyof ComponentVariants]: ComponentVariants[P];
+} & ButtonPropsBase;
+
+
 
 export const Button = ({
   loading,
