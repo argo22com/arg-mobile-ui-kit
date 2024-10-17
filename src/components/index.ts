@@ -10,6 +10,8 @@ export { UISlot, type UISlotProps } from "./atoms/ui-slot/UISlot";
 
 export { Typography, type TypographyProps } from "./atoms/typography/Typography";
 
+export { Card , type CardProps } from "./atoms/card/Card";
+
 // Component Molecules
 export { Button, type ButtonProps } from "./molecules/button/Button";
 export { CheckBox, type CheckBoxProps } from "./molecules/checkbox/CheckBox";
