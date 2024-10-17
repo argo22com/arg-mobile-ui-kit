@@ -12,6 +12,7 @@ import { ToastExample } from "./examples/Toast.example";
 import { ToastManagerExample } from "./examples/ToastManager.example";
 import { TypographyExample } from "./examples/Typography.example";
 import {LoaderExample} from "./examples/Loader.example";
+import {CardExample} from "./examples/Card.example";
 
 export const Root = () => {
   const { styles } = useStyles(stylesheet);
@@ -19,6 +20,7 @@ export const Root = () => {
   return <ScrollView contentContainerStyle={styles.root} >
     <Typography size={"xl"}>@Argo22/mobile-ui-kit Example</Typography>
     <View style={{gap: 24, marginTop: 24}}>
+      <CardExample/>
       <ButtonExample />
       <CheckboxExample />
       <ToastExample />
