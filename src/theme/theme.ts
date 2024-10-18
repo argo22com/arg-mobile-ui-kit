@@ -345,6 +345,96 @@ const createThemeComponentsConfig = (tokens: ThemeTokens) => ({
             },
 		},
 	},
+	iconButton: {
+		size: {
+			sm: {
+				spacing: {
+					vertical: tokens.spacing.sm,
+					horizontal: tokens.spacing.sm,
+				},
+				borderRadius: tokens.borderRadius.sm,
+			},
+			md: {
+				spacing: {
+					vertical: tokens.spacing.md,
+					horizontal: tokens.spacing.md,
+				},
+				borderRadius: tokens.borderRadius.md,
+			},
+			lg: {
+				spacing: {
+					vertical: tokens.spacing.lg,
+					horizontal: tokens.spacing.lg,
+				},
+				borderRadius: tokens.borderRadius.lg,
+			},
+		},
+		variants: {
+			primary: {
+				borderWidth: {
+					default: tokens.borderWidth.sm,
+					pressed: tokens.borderWidth.sm,
+					disabled: tokens.borderWidth.sm,
+				},
+				color: {
+					background: tokens.color.primary["500"],
+					foreground: tokens.color.base.white,
+					pressed: tokens.color.primary["600"],
+					disabled: {
+						background: tokens.color.neutral["500"],
+						foreground: tokens.color.neutral["500"],
+					},
+					border: {
+						default: tokens.color.primary["500"],
+						pressed: tokens.color.primary["600"],
+						disabled: tokens.color.neutral["500"],
+					},
+				},
+			},
+			secondary: {
+				borderWidth: {
+					default: tokens.borderWidth.none,
+					pressed: tokens.borderWidth.sm,
+					disabled: tokens.borderWidth.sm,
+				},
+				color: {
+					background: tokens.color.primary["100"],
+					foreground: tokens.color.primary["500"],
+					pressed: tokens.color.primary["100"],
+					disabled: {
+						background: tokens.color.neutral["400"],
+						foreground: tokens.color.neutral["500"],
+					},
+					border: {
+						default: tokens.color.primary["500"],
+						pressed: tokens.color.primary["600"],
+						disabled: tokens.color.neutral["500"],
+					},
+				},
+			},
+			tertiary: {
+				borderWidth: {
+					default: tokens.borderWidth.sm,
+					pressed: tokens.borderWidth.sm,
+					disabled: tokens.borderWidth.sm,
+				},
+				color: {
+					background: "transparent",
+					foreground: tokens.color.primary["500"],
+					pressed: tokens.color.primary["100"],
+					disabled: {
+						background: "transparent",
+						foreground: tokens.color.neutral["500"],
+					},
+					border: {
+						default: "transparent",
+						pressed: "transparent",
+						disabled: "transparent",
+					},
+				},
+			},
+		},
+	},
 
 	card: {
 		spacing: {
