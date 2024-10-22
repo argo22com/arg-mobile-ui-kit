@@ -124,401 +124,431 @@ const themeTokens = {
 type ThemeTokens = typeof themeTokens;
 
 const createThemeComponentsConfig = (tokens: ThemeTokens) => ({
-	typography: {
-		colors: {
-			primary: tokens.color.neutral["800"],
-			secondary: tokens.color.neutral["500"],
-			label: tokens.color.neutral["500"],
-			placeholder: tokens.color.neutral["400"],
-		},
-	},
-	input: {
-		borderRadius: tokens.borderRadius.xs,
-		// Aligns Label and HelperText with input value from left
-		alignComponentsWithInputValue: false,
-		spacings: {
-			vertical: tokens.spacing.sm,
-			horizontal: tokens.spacing.md,
-			label: tokens.spacing["2xs"],
-			helpertext: tokens.spacing["2xs"],
-		},
-		fonts: {
-			label: tokens.fontFamily.paragraph.light,
-			text: tokens.fontFamily.paragraph.light,
-		},
-		variants: {
-			active: {
-				borderWidth: tokens.borderWidth.sm,
-				color: {
-					background: tokens.color.base.white,
-					foreground: tokens.color.primary["500"],
-				},
-			},
-			disabled: {
-				borderWidth: tokens.borderWidth.sm,
-				color: {
-					background: tokens.color.neutral["100"],
-					foreground: tokens.color.neutral["500"],
-				},
-			},
-			error: {
-				borderWidth: tokens.borderWidth.sm,
-				color: {
-					background: tokens.color.error["100"],
-					foreground: tokens.color.error["500"],
-				},
-			},
-			default: {
-				borderWidth: tokens.borderWidth.sm,
-				color: {
-					background: tokens.color.base.white,
-					foreground: tokens.color.neutral["800"],
-				},
-			},
-			pressed: {
-				color: tokens.color.primary["100"],
-			},
-		},
-	},
-	selectOption: {
-		spacing: {
-			vertical: tokens.spacing.sm,
-			horizontal: tokens.spacing.md,
-		},
-		variants: {
-			pressed: {
-				color: tokens.color.primary["100"],
-			},
-			active: {
-				color: tokens.color.success["100"],
-			},
-		},
-	},
-	checkbox: {
-		borderRadius: tokens.borderRadius.xs,
-		label: {
-			font: tokens.fontFamily.paragraph.light,
-			spacing: {
-				vertical: tokens.spacing.md,
-			},
-			variant: {
-				active: {
-					color: tokens.color.neutral["800"],
-					font: tokens.fontFamily.paragraph.strong,
-				},
-			},
-		},
-	},
-	switch: {
-		borderRadius: tokens.borderRadius.md,
-		label: {
-			font: tokens.fontFamily.paragraph.light,
-			spacing: {
-				vertical: tokens.spacing.sm,
-			},
-			variant: {
-				active: {
-					color: tokens.color.neutral["800"],
-					font: tokens.fontFamily.paragraph.strong,
-				},
-			},
-		},
-		spacing: {
-			horizontal: tokens.spacing["2xs"],
-			vertical: tokens.spacing["2xs"],
-		},
-	},
-	radio: {
-		borderRadius: tokens.borderRadius.full,
-		groupLabel: {
-			// follows input label config
-			variant: {
-				active: {
-					color: tokens.color.neutral["800"],
-				},
-			},
-		},
-		radioLabel: {
-			font: tokens.fontFamily.paragraph.light,
-			spacing: {
-				vertical: tokens.spacing.sm,
-			},
-			variant: {
-				active: {
-					color: tokens.color.neutral["800"],
-					font: tokens.fontFamily.paragraph.strong,
-				},
-			},
-		},
-	},
-	button: {
-		font: tokens.fontFamily.paragraph.light,
-		size: {
-			sm: {
-				spacing: {
-					vertical: tokens.spacing.sm,
-					horizontal: tokens.spacing.md,
-				},
-				borderRadius: tokens.borderRadius.lg,
-				gap: tokens.spacing.sm,
-			},
-			md: {
-				spacing: {
-					vertical: tokens.spacing.sm,
-					horizontal: tokens.spacing.md,
-				},
-				borderRadius: tokens.borderRadius.md,
-				gap: tokens.spacing.sm,
-			},
-			lg: {
-				spacing: {
-					vertical: tokens.spacing.sm,
-					horizontal: tokens.spacing.lg,
-				},
-				borderRadius: tokens.borderRadius.sm,
-				gap: tokens.spacing.sm,
-			},
-		},
-		variants: {
-			primary: {
-				borderWidth: {
-					default: tokens.borderWidth.sm,
-					pressed: tokens.borderWidth.sm,
-					disabled: tokens.borderWidth.sm,
-				},
-				color: {
-					background: tokens.color.primary["500"],
-					foreground: tokens.color.base.white,
-					pressed: tokens.color.primary["600"],
-					disabled: {
-						background: tokens.color.neutral["500"],
-						foreground: tokens.color.neutral["500"],
-					},
-					border: {
-						default: tokens.color.primary["500"],
-						pressed: tokens.color.primary["600"],
-						disabled: tokens.color.neutral["500"],
-					},
-				},
-			},
-			secondary: {
-				borderWidth: {
-					default: tokens.borderWidth.none,
-					pressed: tokens.borderWidth.sm,
-					disabled: tokens.borderWidth.sm,
-				},
-				color: {
-					background: tokens.color.primary["100"],
-					foreground: tokens.color.primary["500"],
-					pressed: tokens.color.primary["100"],
-					disabled: {
-						background: tokens.color.neutral["400"],
-						foreground: tokens.color.neutral["500"],
-					},
-					border: {
-						default: tokens.color.primary["500"],
-						pressed: tokens.color.primary["600"],
-						disabled: tokens.color.neutral["500"],
-					},
-				},
-			},
-			tertiary: {
-				borderWidth: {
-					default: tokens.borderWidth.sm,
-					pressed: tokens.borderWidth.sm,
-					disabled: tokens.borderWidth.sm,
-				},
-				color: {
-					background: "transparent",
-					foreground: tokens.color.primary["500"],
-					pressed: tokens.color.primary["100"],
-					disabled: {
-						background: "transparent",
-						foreground: tokens.color.neutral["500"],
-					},
-					border: {
-						default: "transparent",
-						pressed: "transparent",
-						disabled: "transparent",
-					},
+    typography: {
+        colors: {
+            primary: tokens.color.neutral["800"],
+            secondary: tokens.color.neutral["500"],
+            label: tokens.color.neutral["500"],
+            placeholder: tokens.color.neutral["400"],
+        },
+    },
+    input: {
+        borderRadius: tokens.borderRadius.xs,
+        // Aligns Label and HelperText with input value from left
+        alignComponentsWithInputValue: false,
+        spacings: {
+            vertical: tokens.spacing.sm,
+            horizontal: tokens.spacing.md,
+            label: tokens.spacing["2xs"],
+            helpertext: tokens.spacing["2xs"],
+        },
+        fonts: {
+            label: tokens.fontFamily.paragraph.light,
+            text: tokens.fontFamily.paragraph.light,
+        },
+        variants: {
+            active: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.base.white,
+                    foreground: tokens.color.primary["500"],
                 },
             },
-		},
-	},
-	iconButton: {
-		size: {
-			sm: {
-				spacing: {
-					vertical: tokens.spacing.sm,
-					horizontal: tokens.spacing.sm,
-				},
-				borderRadius: tokens.borderRadius.sm,
-			},
-			md: {
-				spacing: {
-					vertical: tokens.spacing.md,
-					horizontal: tokens.spacing.md,
-				},
-				borderRadius: tokens.borderRadius.md,
-			},
-			lg: {
-				spacing: {
-					vertical: tokens.spacing.lg,
-					horizontal: tokens.spacing.lg,
-				},
-				borderRadius: tokens.borderRadius.lg,
-			},
-		},
-		variants: {
-			primary: {
-				borderWidth: {
-					default: tokens.borderWidth.sm,
-					pressed: tokens.borderWidth.sm,
-					disabled: tokens.borderWidth.sm,
-				},
-				color: {
-					background: tokens.color.primary["500"],
-					foreground: tokens.color.base.white,
-					pressed: tokens.color.primary["600"],
-					disabled: {
-						background: tokens.color.neutral["500"],
-						foreground: tokens.color.neutral["500"],
-					},
-					border: {
-						default: tokens.color.primary["500"],
-						pressed: tokens.color.primary["600"],
-						disabled: tokens.color.neutral["500"],
-					},
-				},
-			},
-			secondary: {
-				borderWidth: {
-					default: tokens.borderWidth.none,
-					pressed: tokens.borderWidth.sm,
-					disabled: tokens.borderWidth.sm,
-				},
-				color: {
-					background: tokens.color.primary["100"],
-					foreground: tokens.color.primary["500"],
-					pressed: tokens.color.primary["100"],
-					disabled: {
-						background: tokens.color.neutral["400"],
-						foreground: tokens.color.neutral["500"],
-					},
-					border: {
-						default: tokens.color.primary["500"],
-						pressed: tokens.color.primary["600"],
-						disabled: tokens.color.neutral["500"],
-					},
-				},
-			},
-			tertiary: {
-				borderWidth: {
-					default: tokens.borderWidth.sm,
-					pressed: tokens.borderWidth.sm,
-					disabled: tokens.borderWidth.sm,
-				},
-				color: {
-					background: "transparent",
-					foreground: tokens.color.primary["500"],
-					pressed: tokens.color.primary["100"],
-					disabled: {
-						background: "transparent",
-						foreground: tokens.color.neutral["500"],
-					},
-					border: {
-						default: "transparent",
-						pressed: "transparent",
-						disabled: "transparent",
-					},
-				},
-			},
-		},
-	},
+            disabled: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.neutral["100"],
+                    foreground: tokens.color.neutral["500"],
+                },
+            },
+            error: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.error["100"],
+                    foreground: tokens.color.error["500"],
+                },
+            },
+            default: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.base.white,
+                    foreground: tokens.color.neutral["800"],
+                },
+            },
+            pressed: {
+                color: tokens.color.primary["100"],
+            },
+        },
+    },
+    selectOption: {
+        spacing: {
+            vertical: tokens.spacing.sm,
+            horizontal: tokens.spacing.md,
+        },
+        variants: {
+            pressed: {
+                color: tokens.color.primary["100"],
+            },
+            active: {
+                color: tokens.color.success["100"],
+            },
+        },
+    },
+    checkbox: {
+        borderRadius: tokens.borderRadius.xs,
+        label: {
+            font: tokens.fontFamily.paragraph.light,
+            spacing: {
+                vertical: tokens.spacing.md,
+            },
+            variant: {
+                active: {
+                    color: tokens.color.neutral["800"],
+                    font: tokens.fontFamily.paragraph.strong,
+                },
+            },
+        },
+    },
+    switch: {
+        borderRadius: tokens.borderRadius.md,
+        label: {
+            font: tokens.fontFamily.paragraph.light,
+            spacing: {
+                vertical: tokens.spacing.sm,
+            },
+            variant: {
+                active: {
+                    color: tokens.color.neutral["800"],
+                    font: tokens.fontFamily.paragraph.strong,
+                },
+            },
+        },
+        spacing: {
+            horizontal: tokens.spacing["2xs"],
+            vertical: tokens.spacing["2xs"],
+        },
+    },
+    radio: {
+        borderRadius: tokens.borderRadius.full,
+        groupLabel: {
+            // follows input label config
+            variant: {
+                active: {
+                    color: tokens.color.neutral["800"],
+                },
+            },
+        },
+        radioLabel: {
+            font: tokens.fontFamily.paragraph.light,
+            spacing: {
+                vertical: tokens.spacing.sm,
+            },
+            variant: {
+                active: {
+                    color: tokens.color.neutral["800"],
+                    font: tokens.fontFamily.paragraph.strong,
+                },
+            },
+        },
+    },
+    button: {
+        font: tokens.fontFamily.paragraph.light,
+        size: {
+            sm: {
+                spacing: {
+                    vertical: tokens.spacing.sm,
+                    horizontal: tokens.spacing.md,
+                },
+                borderRadius: tokens.borderRadius.lg,
+                gap: tokens.spacing.sm,
+            },
+            md: {
+                spacing: {
+                    vertical: tokens.spacing.sm,
+                    horizontal: tokens.spacing.md,
+                },
+                borderRadius: tokens.borderRadius.md,
+                gap: tokens.spacing.sm,
+            },
+            lg: {
+                spacing: {
+                    vertical: tokens.spacing.sm,
+                    horizontal: tokens.spacing.lg,
+                },
+                borderRadius: tokens.borderRadius.sm,
+                gap: tokens.spacing.sm,
+            },
+        },
+        variants: {
+            primary: {
+                borderWidth: {
+                    default: tokens.borderWidth.sm,
+                    pressed: tokens.borderWidth.sm,
+                    disabled: tokens.borderWidth.sm,
+                },
+                color: {
+                    background: tokens.color.primary["500"],
+                    foreground: tokens.color.base.white,
+                    pressed: tokens.color.primary["600"],
+                    disabled: {
+                        background: tokens.color.neutral["500"],
+                        foreground: tokens.color.neutral["500"],
+                    },
+                    border: {
+                        default: tokens.color.primary["500"],
+                        pressed: tokens.color.primary["600"],
+                        disabled: tokens.color.neutral["500"],
+                    },
+                },
+            },
+            secondary: {
+                borderWidth: {
+                    default: tokens.borderWidth.none,
+                    pressed: tokens.borderWidth.sm,
+                    disabled: tokens.borderWidth.sm,
+                },
+                color: {
+                    background: tokens.color.primary["100"],
+                    foreground: tokens.color.primary["500"],
+                    pressed: tokens.color.primary["100"],
+                    disabled: {
+                        background: tokens.color.neutral["400"],
+                        foreground: tokens.color.neutral["500"],
+                    },
+                    border: {
+                        default: tokens.color.primary["500"],
+                        pressed: tokens.color.primary["600"],
+                        disabled: tokens.color.neutral["500"],
+                    },
+                },
+            },
+            tertiary: {
+                borderWidth: {
+                    default: tokens.borderWidth.sm,
+                    pressed: tokens.borderWidth.sm,
+                    disabled: tokens.borderWidth.sm,
+                },
+                color: {
+                    background: "transparent",
+                    foreground: tokens.color.primary["500"],
+                    pressed: tokens.color.primary["100"],
+                    disabled: {
+                        background: "transparent",
+                        foreground: tokens.color.neutral["500"],
+                    },
+                    border: {
+                        default: "transparent",
+                        pressed: "transparent",
+                        disabled: "transparent",
+                    },
+                },
+            },
+        },
+    },
+    iconButton: {
+        size: {
+            sm: {
+                spacing: {
+                    vertical: tokens.spacing.sm,
+                    horizontal: tokens.spacing.sm,
+                },
+                borderRadius: tokens.borderRadius.sm,
+            },
+            md: {
+                spacing: {
+                    vertical: tokens.spacing.md,
+                    horizontal: tokens.spacing.md,
+                },
+                borderRadius: tokens.borderRadius.md,
+            },
+            lg: {
+                spacing: {
+                    vertical: tokens.spacing.lg,
+                    horizontal: tokens.spacing.lg,
+                },
+                borderRadius: tokens.borderRadius.lg,
+            },
+        },
+        variants: {
+            primary: {
+                borderWidth: {
+                    default: tokens.borderWidth.sm,
+                    pressed: tokens.borderWidth.sm,
+                    disabled: tokens.borderWidth.sm,
+                },
+                color: {
+                    background: tokens.color.primary["500"],
+                    foreground: tokens.color.base.white,
+                    pressed: tokens.color.primary["600"],
+                    disabled: {
+                        background: tokens.color.neutral["500"],
+                        foreground: tokens.color.neutral["500"],
+                    },
+                    border: {
+                        default: tokens.color.primary["500"],
+                        pressed: tokens.color.primary["600"],
+                        disabled: tokens.color.neutral["500"],
+                    },
+                },
+            },
+            secondary: {
+                borderWidth: {
+                    default: tokens.borderWidth.none,
+                    pressed: tokens.borderWidth.sm,
+                    disabled: tokens.borderWidth.sm,
+                },
+                color: {
+                    background: tokens.color.primary["100"],
+                    foreground: tokens.color.primary["500"],
+                    pressed: tokens.color.primary["100"],
+                    disabled: {
+                        background: tokens.color.neutral["400"],
+                        foreground: tokens.color.neutral["500"],
+                    },
+                    border: {
+                        default: tokens.color.primary["500"],
+                        pressed: tokens.color.primary["600"],
+                        disabled: tokens.color.neutral["500"],
+                    },
+                },
+            },
+            tertiary: {
+                borderWidth: {
+                    default: tokens.borderWidth.sm,
+                    pressed: tokens.borderWidth.sm,
+                    disabled: tokens.borderWidth.sm,
+                },
+                color: {
+                    background: "transparent",
+                    foreground: tokens.color.primary["500"],
+                    pressed: tokens.color.primary["100"],
+                    disabled: {
+                        background: "transparent",
+                        foreground: tokens.color.neutral["500"],
+                    },
+                    border: {
+                        default: "transparent",
+                        pressed: "transparent",
+                        disabled: "transparent",
+                    },
+                },
+            },
+        },
+    },
 
-	card: {
-		spacing: {
-			vertical: tokens.spacing.sm,
-			horizontal: tokens.spacing.md,
-		},
-		variants: {
-			default: {
-				borderRadius: tokens.borderRadius.md,
-				borderWidth: tokens.borderWidth.none,
-				borderColor: tokens.color.base.white,
-				backgroundColor: tokens.color.base.white,
-			},
-			outlined: {
-				borderRadius: tokens.borderRadius.md,
-				borderWidth: tokens.borderWidth.sm,
-				borderColor: tokens.color.neutral["400"],
-				backgroundColor: tokens.color.base.white,
-			},
+    card: {
+        spacing: {
+            vertical: tokens.spacing.sm,
+            horizontal: tokens.spacing.md,
+        },
+        variants: {
+            default: {
+                borderRadius: tokens.borderRadius.md,
+                borderWidth: tokens.borderWidth.none,
+                borderColor: tokens.color.base.white,
+                backgroundColor: tokens.color.base.white,
+            },
+            outlined: {
+                borderRadius: tokens.borderRadius.md,
+                borderWidth: tokens.borderWidth.sm,
+                borderColor: tokens.color.neutral["400"],
+                backgroundColor: tokens.color.base.white,
+            },
 
-			filled: {
-				borderRadius: tokens.borderRadius.md,
-				borderWidth: tokens.borderWidth.none,
-				borderColor: tokens.color.neutral["100"],
-				backgroundColor: tokens.color.neutral["100"],
-			},
-			rounded: {
-				sm: {
-					borderRadius: tokens.borderRadius.sm,
-				},
-				md: {
-					borderRadius: tokens.borderRadius.md,
-				},
-				lg: {
-					borderRadius: tokens.borderRadius.lg,
-				},
-				default: {
-					borderRadius: tokens.borderRadius.md,
-				},
-			},
-		},
-	},
-	toast: {
-		borderRadius: tokens.borderRadius.md,
-		iconSize: tokens.size.icon,
-		spacings: {
-			vertical: tokens.spacing.sm,
-			horizontal: tokens.spacing.md,
-		},
-		fonts: {
-			label: tokens.fontFamily.paragraph.strong,
-			text: tokens.fontFamily.paragraph.light,
-		},
-		pressedOpacity: 0.7,
-		variants: {
-			info: {
-				borderWidth: tokens.borderWidth.sm,
-				color: {
-					background: tokens.color.info["100"],
-					foreground: tokens.color.info["800"],
-				},
-			},
-			success: {
-				borderWidth: tokens.borderWidth.sm,
-				color: {
-					background: tokens.color.success["100"],
-					foreground: tokens.color.success["800"],
-				},
-			},
-			warning: {
-				borderWidth: tokens.borderWidth.sm,
-				color: {
-					background: tokens.color.warning["100"],
-					foreground: tokens.color.warning["800"],
-				},
-			},
-			error: {
-				borderWidth: tokens.borderWidth.sm,
-				color: {
-					background: tokens.color.error["100"],
-					foreground: tokens.color.error["800"],
-				},
-			},
-		},
+            filled: {
+                borderRadius: tokens.borderRadius.md,
+                borderWidth: tokens.borderWidth.none,
+                borderColor: tokens.color.neutral["100"],
+                backgroundColor: tokens.color.neutral["100"],
+            },
+            rounded: {
+                sm: {
+                    borderRadius: tokens.borderRadius.sm,
+                },
+                md: {
+                    borderRadius: tokens.borderRadius.md,
+                },
+                lg: {
+                    borderRadius: tokens.borderRadius.lg,
+                },
+                default: {
+                    borderRadius: tokens.borderRadius.md,
+                },
+            },
+        },
+    },
+    list: {
+        spacing: {
+            horizontal: tokens.spacing.md,
+            vertical: tokens.spacing["2xs"],
+        },
+        gap: tokens.spacing["2xs"],
+        borderRadius: tokens.borderRadius.md,
+        color: {
+            background: tokens.color.neutral["100"],
+        },
+        separator: {
+            height: tokens.spacing["2xs"],
+            color: tokens.color.neutral["400"]
+        },
+    },
+    listItem: {
+        gap: tokens.spacing.sm,
+        spacing: {
+            horizontal: tokens.spacing.sm,
+            vertical: tokens.spacing.sm,
+        },
+        font: {
+            left: tokens.fontFamily.paragraph.light,
+            right: tokens.fontFamily.paragraph.light,
+            size: {
+                left: tokens.fontSize.sm,
+                right: tokens.fontSize.sm
+            }
+        },
+    },
+    toast: {
+        borderRadius: tokens.borderRadius.md,
+        iconSize: tokens.size.icon,
+        spacings: {
+            vertical: tokens.spacing.sm,
+            horizontal: tokens.spacing.md,
+        },
+        fonts: {
+            label: tokens.fontFamily.paragraph.strong,
+            text: tokens.fontFamily.paragraph.light,
+        },
+        pressedOpacity: 0.7,
+        variants: {
+            info: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.info["100"],
+                    foreground: tokens.color.info["800"],
+                },
+            },
+            success: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.success["100"],
+                    foreground: tokens.color.success["800"],
+                },
+            },
+            warning: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.warning["100"],
+                    foreground: tokens.color.warning["800"],
+                },
+            },
+            error: {
+                borderWidth: tokens.borderWidth.sm,
+                color: {
+                    background: tokens.color.error["100"],
+                    foreground: tokens.color.error["800"],
+                },
+            },
+        },
     },
 
 })

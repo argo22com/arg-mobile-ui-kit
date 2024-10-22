@@ -15,6 +15,7 @@ export { Card , type CardProps } from "./atoms/card/Card";
 // Component Molecules
 export { Button, type ButtonProps } from "./molecules/button/Button";
 export { IconButton, type IconButtonProps } from "./molecules/button/IconButton";
+export { ItemList, type ItemListProps } from "./molecules/item-list/ItemList";
 export { CheckBox, type CheckBoxProps } from "./molecules/checkbox/CheckBox";
 export { Input, type InputProps } from "./molecules/input/Input";
 export { RadioGroup, type RadioGroupProps } from "./molecules/radio-group/RadioGroup";
