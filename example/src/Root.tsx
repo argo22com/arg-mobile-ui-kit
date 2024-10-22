@@ -14,32 +14,36 @@ import { ToastExample } from "./examples/Toast.example";
 import { ToastManagerExample } from "./examples/ToastManager.example";
 import { TypographyExample } from "./examples/Typography.example";
 import { IconButtonExample } from "./examples/IconButton.example";
+import { ItemListExample } from "./examples/ItemList.example";
 
 export const Root = () => {
   const { styles } = useStyles(stylesheet);
 
-  return <ScrollView contentContainerStyle={styles.root} >
-    <Typography size={"xl"}>@Argo22/mobile-ui-kit Example</Typography>
-    <View style={{gap: 24, marginTop: 24}}>
-      <CardExample/>
-      <IconButtonExample/>
-      <ButtonExample />
-      <CheckboxExample />
-      <ToastExample />
-      <IconExample />
-      <InputExample />
-      <RadioGroupExample />
-      <SelectExample />
-      <SwitchExample />
-      <ToastManagerExample />
-      <TypographyExample />
-      <LoaderExample/>
-    </View>
-  </ScrollView>
+    return (
+        <ScrollView contentContainerStyle={styles.root} >
+            <Typography size={"xl"}>@Argo22/mobile-ui-kit Example</Typography>
+            <View style={{gap: 24, marginTop: 24}}>
+                <ItemListExample />
+                <CardExample />
+                <IconButtonExample />
+                <ButtonExample />
+                <CheckboxExample />
+                <ToastExample />
+                <IconExample />
+                <InputExample />
+                <RadioGroupExample />
+                <SelectExample />
+                <SwitchExample />
+                <ToastManagerExample />
+                <TypographyExample />
+                <LoaderExample />
+            </View>
+        </ScrollView>
+    )
 }
 
 const stylesheet = createStyleSheet({
-  root: {
-    padding: 16,
-  }
+    root: {
+        padding: 16,
+    }
 })
