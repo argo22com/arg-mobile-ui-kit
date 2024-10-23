@@ -38,8 +38,6 @@ export const Button = ({
   });
 
   const uiColor = useMemo(() => {
-    if (disabled)
-      return theme.components.button.variants[variant].color.foreground;
     if (variant)
       return theme.components.button.variants[variant].color.foreground;
     return theme.components.button.variants.primary.color.foreground;
@@ -132,7 +130,7 @@ const styleSheet = createStyleSheet((theme) => ({
                     borderWidth:
                     theme.components.button.variants.primary.borderWidth.default,
                     borderColor:
-                    theme.components.button.variants.primary.color.background,
+                    theme.components.button.variants.primary.color.border.default,
                     backgroundColor:
                     theme.components.button.variants.primary.color.background,
                 },
@@ -142,7 +140,7 @@ const styleSheet = createStyleSheet((theme) => ({
                     borderWidth:
                     theme.components.button.variants.secondary.borderWidth.default,
                     borderColor:
-                    theme.components.button.variants.secondary.color.foreground,
+                    theme.components.button.variants.secondary.color.border.default,
                 },
                 tertiary: {
                     backgroundColor:
@@ -150,13 +148,13 @@ const styleSheet = createStyleSheet((theme) => ({
                     borderWidth:
                     theme.components.button.variants.tertiary.borderWidth.default,
                     borderColor:
-                    theme.components.button.variants.tertiary.color.background,
+                    theme.components.button.variants.tertiary.color.border.default,
                 },
                 default: {
                     borderWidth:
                     theme.components.button.variants.primary.borderWidth.default,
                     borderColor:
-                    theme.components.button.variants.primary.color.background,
+                    theme.components.button.variants.primary.color.border.default,
                     backgroundColor:
                     theme.components.button.variants.primary.color.background,
                 },
@@ -171,6 +169,8 @@ const styleSheet = createStyleSheet((theme) => ({
                     theme.components.button.variants.tertiary.borderWidth.pressed,
                     backgroundColor:
                     theme.components.button.variants.tertiary.color.pressed,
+                    borderColor:
+                    theme.components.button.variants.tertiary.color.border.pressed,
                 };
             case "secondary":
                 return {
@@ -178,6 +178,8 @@ const styleSheet = createStyleSheet((theme) => ({
                     theme.components.button.variants.secondary.borderWidth.pressed,
                     backgroundColor:
                     theme.components.button.variants.secondary.color.pressed,
+                    borderColor:
+                    theme.components.button.variants.secondary.color.border.pressed,
                 };
             default:
                 return {
@@ -185,6 +187,8 @@ const styleSheet = createStyleSheet((theme) => ({
                     theme.components.button.variants.primary.borderWidth.pressed,
                     backgroundColor:
                     theme.components.button.variants.primary.color.pressed,
+                    borderColor:
+                    theme.components.button.variants.primary.color.border.pressed,
                 };
         }
     },
@@ -195,7 +199,7 @@ const styleSheet = createStyleSheet((theme) => ({
                     backgroundColor:
                     theme.components.button.variants.tertiary.color.disabled.background,
                     borderColor:
-                    theme.components.button.variants.tertiary.color.disabled.background,
+                    theme.components.button.variants.tertiary.color.border.disabled,
                     borderWidth:
                     theme.components.button.variants.tertiary.borderWidth.disabled,
                 };
@@ -205,8 +209,7 @@ const styleSheet = createStyleSheet((theme) => ({
                     theme.components.button.variants.secondary.color.disabled
                         .background,
                     borderColor:
-                    theme.components.button.variants.secondary.color.disabled
-                        .foreground,
+                    theme.components.button.variants.secondary.color.border.disabled,
                     borderWidth:
                     theme.components.button.variants.secondary.borderWidth.disabled,
                 };
@@ -215,7 +218,7 @@ const styleSheet = createStyleSheet((theme) => ({
                     backgroundColor:
                     theme.components.button.variants.primary.color.disabled.background,
                     borderColor:
-                    theme.components.button.variants.primary.color.disabled.background,
+                    theme.components.button.variants.primary.color.border.disabled,
                     borderWidth:
                     theme.components.button.variants.primary.borderWidth.disabled,
                 };

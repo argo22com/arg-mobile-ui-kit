@@ -94,6 +94,7 @@ export default () => <SearchIcon />
 ### Atoms
 Atoms are the fundamental building blocks of the UI, providing simple and reusable components like typography and component for custom icons.
 
+- [Card](./docs/Card.docs.md)
 - [Helper Text](./docs/HelperText.docs.md)
 - [Custom Icon](./docs/Icon.docs.md)
 - [Label](./docs/Label.docs.md)
@@ -104,8 +105,10 @@ Atoms are the fundamental building blocks of the UI, providing simple and reusab
 ### Molecules
 Molecules combine two or more atoms to form more complex UI components, such as buttons and input fields, which offer richer functionality and interaction.
 - [Button](./docs/Button.docs.md)
+- [IconButton](./docs/IconButton.docs.md)
 - [Check Box](./docs/CheckBox.docs.md)
 - [Input](./docs/Input.docs.md)
+- [Item List](./docs/ItemList.docs.md)
 - [Radio Group](./docs/RadioGroup.docs.md)
 - [Select](./docs/Select.docs.md)
 - [Switch](./docs/Switch.docs.md)
