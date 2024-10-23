@@ -28,8 +28,6 @@ export const IconButton = ({
     });
 
     const uiColor = useMemo(() => {
-        if (disabled)
-            return theme.components.iconButton.variants[variant].color.foreground;
         if (variant)
             return theme.components.iconButton.variants[variant].color.foreground;
         return theme.components.iconButton.variants.primary.color.foreground;
