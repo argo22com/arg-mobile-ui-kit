@@ -9,7 +9,7 @@ export type LoaderProps = ComponentProps<typeof LucideLoaderCircle>;
 
 export const Loader = ({ style, ...rest }: LoaderProps) => {
     const contextStyles = useContext(UIContext);
-    const { styles } = useStyles(loaderStyleSheet);
+    const { styles, theme } = useStyles(loaderStyleSheet);
     const rotateAnim = useRef(new Animated.Value(0)).current;
 
     useEffect(() => {
@@ -37,7 +37,7 @@ export const Loader = ({ style, ...rest }: LoaderProps) => {
             <Animated.View style={animatedStyle}>
                 <LucideLoaderCircle
                     size={contextStyles?.size}
-                    color={contextStyles?.color}
+                    color={contextStyles?.color ?? theme.color.primary["500"]}
                     {...rest}
                 />
             </Animated.View>
