@@ -9,6 +9,22 @@
 
 ---
 
+## Types
+
+```typescript
+export type Item = {
+  left: TextPayload | ReactNode;
+  right: TextPayload | ReactNode;
+} & ViewProps;
+
+export type TextPayload = {
+  value: string;
+  icon?: ReactNode;
+  disabled?: boolean;
+};
+
+```
+
 ## Usage
 
 The `ItemList` component is a structured list that displays a series of `ListItem` components, each with customizable left and right content. It supports separation between list items with a separator line.
