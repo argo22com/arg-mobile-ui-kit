@@ -382,7 +382,7 @@ const createThemeComponentsConfig = (tokens: ThemeTokens) => ({
                     pressed: tokens.color.primary["600"],
                     disabled: {
                         background: tokens.color.neutral["500"],
-                        foreground: tokens.color.neutral["500"],
+                        foreground: tokens.color.neutral["100"],
                     },
                     border: {
                         default: tokens.color.primary["500"],
@@ -403,7 +403,7 @@ const createThemeComponentsConfig = (tokens: ThemeTokens) => ({
                     pressed: tokens.color.primary["100"],
                     disabled: {
                         background: tokens.color.neutral["400"],
-                        foreground: tokens.color.neutral["500"],
+                        foreground: tokens.color.neutral["100"],
                     },
                     border: {
                         default: tokens.color.primary["500"],
@@ -488,7 +488,7 @@ const createThemeComponentsConfig = (tokens: ThemeTokens) => ({
             background: tokens.color.neutral["100"],
         },
         separator: {
-            height: tokens.spacing["2xs"],
+            height: 1,
             color: tokens.color.neutral["400"]
         },
     },

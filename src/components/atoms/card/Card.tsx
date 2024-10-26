@@ -16,7 +16,6 @@ export const Card = ({ children, style, outlined, rounded, filled, ...rest }: Ca
 
 const stylesheet = createStyleSheet((theme) => ({
 	root: {
-		width: "100%",
 		paddingHorizontal: theme.components.card.spacing.horizontal,
 		paddingVertical: theme.components.card.spacing.vertical,
 

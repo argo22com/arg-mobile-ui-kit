@@ -28,6 +28,8 @@ export const IconButton = ({
     });
 
     const uiColor = useMemo(() => {
+        if (disabled)
+            return theme.components.iconButton.variants[variant].color.disabled.foreground;
         if (variant)
             return theme.components.iconButton.variants[variant].color.foreground;
         return theme.components.iconButton.variants.primary.color.foreground;
@@ -56,8 +58,8 @@ export const IconButton = ({
                             pressed && styles.pressed(variant),
                             disabled && styles.disabled(variant),
                         ]}
-                    >{iconSlot?<UISlot element={iconSlot} />:null}
-
+                    >
+                        { iconSlot ? <UISlot element={iconSlot} /> : null }
                     </View>
                 )}
             </Pressable>

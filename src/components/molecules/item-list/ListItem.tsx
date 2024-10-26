@@ -1,15 +1,29 @@
 import {createStyleSheet, useStyles} from "react-native-unistyles";
-import {StyleProp, TextStyle, View} from "react-native";
-import {Item, TextPayload} from "./ItemList";
+import { StyleProp, TextStyle, View, ViewProps } from "react-native";
 import {Typography} from "../../atoms/typography/Typography";
 import {ReactNode} from "react";
 
-export const ListItem = ({left, right, ...rest}: Item) => {
+export type Item = {
+    left: TextPayload | ReactNode;
+    right: TextPayload | ReactNode;
+} & ViewProps;
+
+export type TextPayload = {
+    value: string;
+    icon?: ReactNode;
+    disabled?: boolean;
+};
+
+const isTextPayload = (payload: TextPayload | ReactNode | string): payload is TextPayload => {
+    return !!(payload && typeof payload === "object" && "value" in payload);
+}
+
+export const ListItem = ({left, right, style, ...rest}: Item) => {
     const {styles} = useStyles(listItemStylesheet);
 
-    const renderTextPayload = (payload: TextPayload, fontStyle: StyleProp<TextStyle>) => (
+    const TextPayload = ({payload, fontStyle}: { payload: TextPayload, fontStyle: StyleProp<TextStyle>}) => (
         <>
-            {payload.icon && <View style={styles.icon}>{payload.icon}</View>}
+            {payload.icon ? <View style={styles.icon}>{payload.icon}</View> : null}
             <Typography style={fontStyle} disabled={payload.disabled}>
                 {payload.value}
             </Typography>
@@ -20,19 +34,19 @@ export const ListItem = ({left, right, ...rest}: Item) => {
         if (typeof content === "string") {
             return <Typography style={fontStyle}>{content}</Typography>;
         }
-        if (content && typeof content === "object" && "value" in content) {
-            return renderTextPayload(content as TextPayload, fontStyle);
+        if (isTextPayload(content)) {
+            return <TextPayload payload={content} fontStyle={fontStyle}/>;
         }
         return content;
     };
 
     return (
-        <View style={[styles.root]} {...rest}>
-            <View style={styles.left}>
-                {left && renderContent(left, styles.leftFont)}
+        <View style={[styles.root, style]} {...rest}>
+            <View style={[styles.slot,styles.left]}>
+                {renderContent(left, [styles.leftFont, styles.flexFill])}
             </View>
-            <View style={styles.right}>
-                {right && renderContent(right, styles.rightFont)}
+            <View style={[styles.slot, styles.right]}>
+                {renderContent(right, [styles.rightFont, styles.flexFill])}
             </View>
         </View>
     );
@@ -40,24 +54,28 @@ export const ListItem = ({left, right, ...rest}: Item) => {
 
 const listItemStylesheet = createStyleSheet((theme) => ({
     root: {
+        flex: 1,
         flexDirection: "row",
-        justifyContent: "space-between",
+        alignItems: "center",
         paddingVertical: theme.components.listItem.spacing.vertical,
         paddingHorizontal: theme.components.listItem.spacing.horizontal,
+        gap: theme.components.listItem.gap,
     },
     icon: {
         marginRight: theme.components.listItem.gap,
     },
-    left: {
-        width: "40%",
+    slot: {
+        flex:1,
         flexDirection: "row",
+        flexWrap: "wrap",
         alignItems: "center",
     },
+    left: {},
     right: {
-        width: "40%",
-        flexDirection: "row",
-        alignItems: "center",
         justifyContent: "flex-end",
+    },
+    flexFill: {
+        flex: 1,
     },
     leftFont: {
         fontFamily: theme.components.listItem.font.left,
