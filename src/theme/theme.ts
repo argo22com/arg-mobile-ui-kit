@@ -515,8 +515,8 @@ const createThemeComponentsConfig = (tokens: ThemeTokens) => ({
             horizontal: tokens.spacing.md,
         },
         fonts: {
-            label: tokens.fontFamily.paragraph.strong,
-            text: tokens.fontFamily.paragraph.light,
+            title: tokens.fontFamily.paragraph.strong,
+            description: tokens.fontFamily.paragraph.light,
         },
         pressedOpacity: 0.7,
         variants: {

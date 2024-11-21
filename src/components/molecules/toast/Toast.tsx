@@ -86,12 +86,12 @@ export const Toast = ({
           <View style={styles.content}>
             {title ? (
               <ToastPrimitive.Title>
-                <Typography>{title}</Typography>
+                <Typography style={styles.titleFont} >{title}</Typography>
               </ToastPrimitive.Title>
             ) : null}
             {description ? (
               <ToastPrimitive.Description>
-                <Typography size="sm">{description}</Typography>
+                <Typography size="sm" style={styles.descriptionFont}>{description}</Typography>
               </ToastPrimitive.Description>
             ) : null}
           </View>
@@ -171,4 +171,10 @@ const stylesheet = createStyleSheet((theme) => ({
   pressed: {
     opacity: theme.components.toast.pressedOpacity,
   },
+  titleFont:{
+    fontFamily:theme.components.toast.fonts.title,
+  },
+  descriptionFont:{
+    fontFamily:theme.components.toast.fonts.description,
+  }
 }));
