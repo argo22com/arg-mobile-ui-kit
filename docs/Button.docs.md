@@ -2,16 +2,16 @@
 
 ## Props
 
-| Property         | Type                                     | Description                                                       | Required | Default     |
-|------------------|------------------------------------------|-------------------------------------------------------------------|----------|-------------|
-| `loading`        | `boolean`                                | If true, shows a loading indicator and disables the button.       | No       | `false`     |
-| `leftSlot`       | `ReactElement`                           | Custom element displayed on the left side of the button content.  | No       | `undefined` |
-| `rightSlot`      | `ReactElement`                           | Custom element displayed on the right side of the button content. | No       | `undefined` |
-| `loaderPosition` | `"right" \| "left"`                      | Position of the loader when loading is true.                      | No       | `"right"`   |
-| `size`           | `"sm" \| "md" \| "lg"`                   | Size of the button.                                               | No       | `"md"`      |
-| `disabled`       | `boolean`                                | If true, the button is disabled.                                  | No       | `false`     |
-| `variant`        | `"primary" \| "secondary" \| "tertiary"` | Style variant of the button.                                      | No       | `"primary"` |
-| `...rest`        | `PressableProps`                         | Additional props passed to the button.                            | No       |             |
+| Property         | Type                                                | Description                                                       | Required | Default     |
+|------------------|-----------------------------------------------------|-------------------------------------------------------------------|----------|-------------|
+| `loading`        | `boolean`                                           | If true, shows a loading indicator and disables the button.       | No       | `false`     |
+| `leftSlot`       | `ReactElement`                                      | Custom element displayed on the left side of the button content.  | No       | `undefined` |
+| `rightSlot`      | `ReactElement`                                      | Custom element displayed on the right side of the button content. | No       | `undefined` |
+| `loaderPosition` | `"right" \| "left"`                                 | Position of the loader when loading is true.                      | No       | `"right"`   |
+| `size`           | `"sm" \| "md" \| "lg"`                              | Size of the button.                                               | No       | `"md"`      |
+| `disabled`       | `boolean`                                           | If true, the button is disabled.                                  | No       | `false`     |
+| `variant`        | `"primary" \| "secondary" \| "tertiary" \| "danger"` | Style variant of the button.                                      | No       | `"primary"` |
+| `...rest`        | `PressableProps`                                    | Additional props passed to the button.                            | No       |             |
 
 ---
 
@@ -55,6 +55,7 @@ Configuration must be done in `theme.ts`
 - **primary**: Default button style with a primary color scheme.
 - **secondary**: Alternative button style with a secondary color scheme.
 - **tertiary**: Button style with a minimalistic or tertiary color scheme.
+- **danger**: Button style for destructive actions.
 
 Each variant and size can be combined with different states like `pressed` and `disabled` to reflect appropriate visual
 cues.

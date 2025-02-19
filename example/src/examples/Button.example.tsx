@@ -2,6 +2,7 @@ import { ArrowLeft, ArrowRight } from "@argo22/mobile-ui-kit/icons";
 import { View } from "react-native";
 
 import { Button } from "@argo22/mobile-ui-kit";
+import {Trash} from "lucide-react-native";
 
 export const ButtonExample = () => {
   return (
@@ -77,6 +78,11 @@ export const ButtonExample = () => {
         <Button size="sm">Button</Button>
         <Button size="md">Button</Button>
         <Button size="lg">Button</Button>
+      </View>
+      <View style={{ flexDirection: "row", gap: 4, flexWrap: "wrap" }}>
+        <Button variant={"danger"} size="sm" >Button</Button>
+        <Button variant={"danger"} size="md">Button</Button>
+        <Button variant={"danger"} size="lg" rightSlot={<Trash/>}>Button</Button>
       </View>
     </View>
   );
