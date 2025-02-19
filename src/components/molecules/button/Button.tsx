@@ -152,6 +152,14 @@ const styleSheet = createStyleSheet((theme) => ({
                     borderColor:
                     theme.components.button.variants.tertiary.color.border.default,
                 },
+                danger:{
+                    backgroundColor:
+                    theme.components.button.variants.danger.color.background,
+                    borderWidth:
+                    theme.components.button.variants.danger.borderWidth.default,
+                    borderColor:
+                    theme.components.button.variants.danger.color.border.default,
+                },
                 default: {
                     borderWidth:
                     theme.components.button.variants.primary.borderWidth.default,
@@ -183,6 +191,15 @@ const styleSheet = createStyleSheet((theme) => ({
                     borderColor:
                     theme.components.button.variants.secondary.color.border.pressed,
                 };
+            case "danger":
+                return{
+                    borderWidth:
+                    theme.components.button.variants.danger.borderWidth.pressed,
+                    backgroundColor:
+                    theme.components.button.variants.danger.color.pressed,
+                    borderColor:
+                    theme.components.button.variants.danger.color.border.pressed,
+                };
             default:
                 return {
                     borderWidth:
@@ -208,12 +225,20 @@ const styleSheet = createStyleSheet((theme) => ({
             case "secondary":
                 return {
                     backgroundColor:
-                    theme.components.button.variants.secondary.color.disabled
-                        .background,
+                    theme.components.button.variants.secondary.color.disabled.background,
                     borderColor:
                     theme.components.button.variants.secondary.color.border.disabled,
                     borderWidth:
                     theme.components.button.variants.secondary.borderWidth.disabled,
+                };
+            case "danger":
+                return {
+                    backgroundColor:
+                    theme.components.button.variants.danger.color.disabled.background,
+                    borderColor:
+                    theme.components.button.variants.danger.color.border.disabled,
+                    borderWidth:
+                    theme.components.button.variants.danger.borderWidth.disabled,
                 };
             default:
                 return {

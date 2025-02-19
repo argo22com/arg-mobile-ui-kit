@@ -343,6 +343,27 @@ const createThemeComponentsConfig = (tokens: ThemeTokens) => ({
                     },
                 },
             },
+            danger: {
+                borderWidth: {
+                    default: tokens.borderWidth.sm,
+                    pressed: tokens.borderWidth.sm,
+                    disabled: tokens.borderWidth.sm,
+                },
+                color:{
+                    background: tokens.color.error["500"],
+                    foreground: tokens.color.base.white,
+                    pressed: tokens.color.error["600"],
+                    disabled: {
+                        background: tokens.color.error["100"],
+                        foreground: tokens.color.error["400"],
+                    },
+                    border: {
+                        default: tokens.color.error["500"],
+                        pressed: tokens.color.error["600"],
+                        disabled: tokens.color.error["400"],
+                    },
+                },
+            },
         },
     },
     iconButton: {
