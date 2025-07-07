@@ -140,7 +140,7 @@ Input.displayName = "Input";
 
 const stylesheet = createStyleSheet((theme) => ({
   root: {
-    minWidth: 150,
+    minWidth: 120,
 
     borderWidth: theme.components.input.variants.default.borderWidth,
     borderRadius: theme.components.input.borderRadius,
