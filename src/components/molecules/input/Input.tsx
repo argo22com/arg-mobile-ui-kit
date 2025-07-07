@@ -188,6 +188,10 @@ const stylesheet = createStyleSheet((theme) => ({
   },
   input: {
     flex: 1,
+
+    // Padding reset for special devices
+    padding:0,
+
     fontFamily: theme.components.input.fonts.text,
     fontSize: theme.fontSize.md,
     color: theme.components.input.variants.default.color.foreground,
