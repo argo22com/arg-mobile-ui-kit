@@ -37,12 +37,12 @@
   "license": "MIT",
   "homepage": "https://github.com/argo22com/arg-mobile-ui-kit#readme",
   "dependencies": {
-    "@rn-primitives/checkbox": "^1.1.0",
-    "@rn-primitives/portal": "^1.1.0",
-    "@rn-primitives/radio-group": "^1.1.0",
-    "@rn-primitives/select": "^1.1.0",
-    "@rn-primitives/switch": "^1.1.0",
-    "@rn-primitives/toast": "^1.1.0",
+    "@rn-primitives/checkbox": "^1.2.0",
+    "@rn-primitives/portal": "^1.2.0",
+    "@rn-primitives/radio-group": "^1.2.0",
+    "@rn-primitives/select": "^1.2.0",
+    "@rn-primitives/switch": "^1.2.0",
+    "@rn-primitives/toast": "^1.2.0",
     "lucide-react-native": "^0.453.0"
   },
   "devDependencies": {
