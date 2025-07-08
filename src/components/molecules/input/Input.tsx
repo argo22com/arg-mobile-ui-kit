@@ -140,7 +140,7 @@ Input.displayName = "Input";
 
 const stylesheet = createStyleSheet((theme) => ({
   root: {
-    minWidth: 150,
+    minWidth: 120,
 
     borderWidth: theme.components.input.variants.default.borderWidth,
     borderRadius: theme.components.input.borderRadius,
@@ -188,6 +188,10 @@ const stylesheet = createStyleSheet((theme) => ({
   },
   input: {
     flex: 1,
+
+    // Padding reset for special devices
+    padding:0,
+
     fontFamily: theme.components.input.fonts.text,
     fontSize: theme.fontSize.md,
     color: theme.components.input.variants.default.color.foreground,

@@ -4,6 +4,7 @@ import { type ReactElement, useState } from "react";
 import { StyleSheet, View, type ViewProps, type ViewStyle } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { createStyleSheet, useStyles } from "react-native-unistyles";
+import type { PositionedContentProps } from "@rn-primitives/types";
 
 import { UIContext } from "../../../context";
 import { HelperText } from "../../atoms/helper-text/HelperText";
@@ -25,6 +26,7 @@ export type SelectProps = {
   helperText?: string;
   disabled?: boolean;
   error?: boolean;
+  contentSide?: PositionedContentProps["side"];
   endSlotOpened?: ReactElement;
   endSlotClosed?: ReactElement;
 } & ViewProps;
@@ -38,6 +40,7 @@ export const Select = ({
   value,
   disabled,
   error,
+  contentSide = undefined,
   endSlotOpened = <ChevronUp />,
   endSlotClosed = <ChevronDown />,
   ...rest
@@ -110,6 +113,7 @@ export const Select = ({
                 sideOffset={theme.spacing.sm}
                 style={[styles.content, { width }]}
                 insets={contentInsets}
+                side={contentSide}
               >
                 <SelectPrimitive.Viewport>
                   {options.map((item) => (
