@@ -68,3 +68,7 @@ web-build/
 
 /example/android/
 /example/ios/
+
+# local agent notes — not shared, each dev keeps their own
+CLAUDE.md
+.scratch/
